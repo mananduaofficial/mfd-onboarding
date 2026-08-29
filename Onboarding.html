@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='40' fill='%231d2e28'/%3E%3Cpath d='M15,100 L100,88 L185,100 L100,112 Z' fill='%23faf8f3' opacity='0.3'/%3E%3Cpath d='M100,15 L112,100 L100,185 L88,100 Z' fill='%23cfa54f'/%3E%3Crect x='96' y='96' width='8' height='8' fill='%231d2e28' transform='rotate(45 100 100)'/%3E%3C/svg%3E">
+<title>Client Onboarding — Manan Dua</title>
+<meta name="description" content="Mutual fund onboarding — Manan Dua, AMFI Registered Mutual Fund Distributor, ARN-365491">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Client Onboarding — Manan Dua">
+<meta property="og:description" content="Complete your mutual fund onboarding with Manan Dua, AMFI Registered Mutual Fund Distributor, ARN-365491">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* Palette matches manandua.in live site (forest/gold/Cormorant Garamond) */
+  --navy:#1d2e28;--navy2:#2a4038;--navy3:#3a5448;
+  --gold:#b8903a;--gold2:#cfa54f;--gold3:#f0e6cc;
+  --bg:#faf8f3;--bg2:#fff;--bg3:#ede8de;
+  --text:#1c1917;--text2:#4a4038;--text3:#8c8070;
+  --border:rgba(42,64,56,.14);--border2:rgba(42,64,56,.28);
+  --green:#0A6E4F;--green-bg:#E8F5F1;--green-bd:#A3D4C4;
+  --red:#991B1B;--red-bg:#FEF2F2;--red-bd:#FCA5A5;
+  --amber:#92400E;--amber-bg:#FFFBEB;--amber-bd:#FCD34D;
+  --blue:#1E3A5F;--blue-bg:#EFF6FF;--blue-bd:#BFDBFE;
+  --r:8px;--rl:14px;--rxl:20px;
+  --sh:0 1px 4px rgba(29,46,40,.08);--shl:0 8px 32px rgba(29,46,40,.12);
+}
+html,body{min-height:100%;font-family:'Inter',system-ui,sans-serif;font-size:14px;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+
+/* ── LAYOUT ── */
+#app{min-height:100vh;display:flex;flex-direction:column}
+.header{background:var(--navy);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;position:sticky;top:0;z-index:100}
+.header-brand{display:flex;align-items:center;gap:12px}
+.header-logo{width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.header-name{font-size:15px;font-weight:600;color:#fff;letter-spacing:-.02em}
+.header-reg{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px}
+.header-badge{background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--gold2);font-size:10px;font-weight:600;padding:3px 10px;border-radius:99px;letter-spacing:.05em}
+
+.page{flex:1;max-width:760px;width:100%;margin:0 auto;padding:32px 20px 80px}
+
+/* ── PROGRESS ── */
+.progress-wrap{margin-bottom:36px}
+.progress-steps{display:flex;gap:0;margin-bottom:16px}
+.ps{flex:1;display:flex;flex-direction:column;align-items:center;position:relative}
+.ps::before{content:'';position:absolute;top:14px;left:50%;width:100%;height:2px;background:var(--border);z-index:0}
+.ps:last-child::before{display:none}
+.ps-dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--border);background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--text3);position:relative;z-index:1;transition:all .3s}
+.ps.done .ps-dot{background:var(--navy);border-color:var(--navy);color:#fff}
+.ps.active .ps-dot{background:var(--gold);border-color:var(--gold);color:var(--navy);box-shadow:0 0 0 4px rgba(201,168,76,.2)}
+.ps-label{font-size:10px;color:var(--text3);margin-top:6px;text-align:center;font-weight:500;white-space:nowrap}
+.ps.active .ps-label{color:var(--gold);font-weight:600}
+.ps.done .ps-label{color:var(--navy)}
+.progress-bar-wrap{height:3px;background:var(--border);border-radius:99px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--navy),var(--gold));border-radius:99px;transition:width .5s ease}
+
+/* ── CARDS ── */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:28px 32px;box-shadow:var(--sh);margin-bottom:16px}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.card-sub{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:20px}
+.sec-label{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+
+/* ── FORMS ── */
+.fg{margin-bottom:16px}
+.fl{font-size:12px;font-weight:500;color:var(--text2);margin-bottom:5px;display:block}
+.fl em{color:var(--red);font-style:normal}
+.fl .hint{font-size:11px;color:var(--text3);font-weight:400;margin-left:6px}
+input,select,textarea{width:100%;padding:10px 13px;border:1.5px solid var(--border2);border-radius:var(--r);font-size:13px;background:var(--bg2);color:var(--text);outline:none;font-family:inherit;transition:border .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(11,31,58,.08)}
+input.err,select.err{border-color:var(--red)}
+.err-msg{font-size:11px;color:var(--red);margin-top:4px}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+textarea{resize:vertical;min-height:72px}
+
+/* ── QUESTION CARDS ── */
+.q-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--rl);padding:22px 26px;margin-bottom:14px;transition:border-color .2s}
+.q-card.answered{border-color:rgba(11,31,58,.15)}
+.q-num{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.q-label{font-size:14px;font-weight:500;color:var(--text);line-height:1.6;margin-bottom:16px}
+.q-opts{display:flex;flex-direction:column;gap:8px}
+.q-opt{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;border:1.5px solid var(--border2);border-radius:var(--r);cursor:pointer;transition:all .15s;font-size:13px;color:var(--text2);line-height:1.4}
+.q-opt:hover{border-color:var(--navy);background:var(--bg3);color:var(--text)}
+.q-opt.sel{border-color:var(--navy);background:var(--navy);color:#fff}
+.q-dot{width:18px;height:18px;border-radius:50%;border:2px solid currentColor;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:9px;transition:all .15s}
+.q-opt.sel .q-dot{background:#fff;border-color:#fff;color:var(--navy)}
+.q-dot::after{content:'✓';display:none;font-weight:700}
+.q-opt.sel .q-dot::after{display:block}
+
+/* ── SECTION NAV ── */
+.sec-nav{display:flex;align-items:center;gap:6px;margin-bottom:28px;flex-wrap:wrap}
+.sec-pip{width:32px;height:4px;border-radius:99px;background:var(--border);transition:all .3s;cursor:pointer}
+.sec-pip.done{background:var(--navy)}
+.sec-pip.active{background:var(--gold);width:48px}
+.sec-meta{margin-left:auto;font-size:12px;color:var(--text3)}
+
+/* ── DISCLOSURES ── */
+.disc-item{border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-bottom:10px}
+.disc-title{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;display:flex;align-items:center;gap:7px}
+.disc-title i{font-size:14px;color:var(--gold)}
+.disc-body{font-size:12px;color:var(--text2);line-height:1.7}
+.disc-body li{margin-left:16px;margin-bottom:3px}
+.consent-box{background:var(--navy);border-radius:var(--rl);padding:20px 24px;margin-top:20px;display:flex;align-items:flex-start;gap:14px;cursor:pointer}
+.consent-check{width:22px;height:22px;border:2px solid rgba(255,255,255,.3);border-radius:5px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:13px;color:transparent;transition:all .2s}
+.consent-box.agreed .consent-check{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.consent-text{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6}
+.consent-text strong{color:#fff}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:all .15s;font-family:inherit;line-height:1}
+.btn-primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-primary:hover{background:var(--navy3)}
+.btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold2)}
+.btn-sec{background:var(--bg2);color:var(--text2);border-color:var(--border2)}
+.btn-sec:hover{background:var(--bg3);color:var(--text)}
+.btn-ghost{background:transparent;color:var(--text2);border-color:transparent;padding-left:0}
+.btn-ghost:hover{color:var(--text)}
+.btn:disabled{opacity:.4;pointer-events:none}.btn.disabled{opacity:.4}
+.btn-lg{padding:14px 28px;font-size:14px;border-radius:var(--rl)}
+.btn-row{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
+
+/* ── REPORT ── */
+.report-hero{background:var(--navy);border-radius:var(--rl);padding:32px;margin-bottom:20px;color:#fff}
+.report-name{font-size:12px;font-weight:600;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.report-profile{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold2);margin-bottom:4px}
+.report-score{font-size:13px;color:rgba(255,255,255,.6)}
+.score-sections{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
+.score-sec{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px}
+.ss-label{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.ss-val{font-size:18px;font-weight:700;color:var(--navy);font-family:'Cormorant Garamond',serif}
+.ss-sub{font-size:10px;color:var(--text3);margin-top:2px}
+.override-notice{background:var(--amber-bg);border:1px solid var(--amber-bd);border-radius:var(--r);padding:12px 14px;font-size:12px;color:var(--amber);margin-bottom:12px}
+.override-notice i{margin-right:6px}
+.disc-badge{display:inline-flex;align-items:center;gap:5px;background:var(--red-bg);border:1px solid var(--red-bd);border-radius:99px;padding:3px 10px;font-size:11px;font-weight:600;color:var(--red)}
+
+/* ── SIGNATURE ── */
+/* sig-box and sig-line removed — distributor signature box removed from workflow */
+.bsm{font-size:12px!important;padding:5px 12px!important;min-width:auto!important}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sig-label{font-size:11px;color:var(--text3)}
+
+/* ── CKYC FORM ── */
+.ckyc-consent-text{background:var(--blue-bg);border:1px solid var(--blue-bd);border-radius:var(--r);padding:14px 16px;font-size:12px;color:var(--blue);line-height:1.7;margin-bottom:18px}
+
+/* ── DECLARATION ── */
+.declaration{background:var(--bg3);border-radius:var(--r);padding:16px 18px;font-size:12px;color:var(--text2);line-height:1.7;border:1px solid var(--border);margin-bottom:16px}
+.declaration p{margin-bottom:8px}
+.declaration p:last-child{margin-bottom:0}
+
+/* ── ALERTS ── */
+.ntc{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:var(--r);margin-bottom:12px;font-size:12px;font-weight:500;line-height:1.5}
+.ntc i{font-size:15px;flex-shrink:0;margin-top:1px}
+.ntc-gold{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd)}
+.ntc-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-bd)}
+.ntc-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-bd)}
+.ntc-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-bd)}
+
+
+/* ── MODAL (replaces native alert/confirm) ── */
+.ob-modal-overlay{position:fixed;inset:0;background:rgba(11,31,58,.55);z-index:998;display:flex;align-items:center;justify-content:center;padding:20px}
+.ob-modal{background:#fff;border-radius:var(--rl);max-width:440px;width:100%;padding:26px 28px;box-shadow:var(--shl)}
+.ob-modal-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.ob-modal-title.err{color:var(--red)}
+.ob-modal-title.warn{color:var(--amber)}
+.ob-modal-body{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:22px;white-space:pre-line}
+.ob-modal-actions{display:flex;justify-content:flex-end;gap:10px}
+
+/* ── ESIGN CANVAS ── */
+.esign-wrap{border:1.5px solid var(--border2);border-radius:var(--r);background:#fff;overflow:hidden;position:relative}
+.esign-canvas{display:block;width:100%;height:120px;cursor:crosshair;touch-action:none}
+.esign-bar{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:var(--bg3);border-top:1px solid var(--border)}
+.esign-bar span{font-size:11px;color:var(--text3)}
+
+.esign-tabs{display:flex;gap:2px;margin-bottom:8px}
+.esign-tab{padding:5px 14px;border-radius:var(--r);font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);transition:all .15s}
+.esign-tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── PRINT ── */
+@media print{
+  .header,.progress-wrap,.btn-row,.btn,.no-print{display:none!important}
+  @page{ margin:15mm; size:A4; }
+  .card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+  body{background:#fff}
+  .report-hero{background:#0B1F3A!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* ── MOBILE ── */
+@media(max-width:640px){
+  .page{padding:20px 14px 60px}
+  .r2,.r3{grid-template-columns:1fr}
+  .score-sections{grid-template-columns:1fr 1fr}
+  .card{padding:20px 18px}
+}
+
+/* ── SUCCESS ── */
+.success-screen{text-align:center;padding:60px 20px}
+.success-icon{width:72px;height:72px;background:var(--green-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:32px;color:var(--green)}
+.success-title{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--navy);margin-bottom:10px}
+.success-sub{font-size:14px;color:var(--text2);line-height:1.6;max-width:420px;margin:0 auto 28px}
+.summary-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px;margin:0 0 24px}
+.summary-table tr{border-bottom:1px solid var(--border)}
+.summary-table td:first-child{color:var(--text3);padding:8px 0;width:40%}
+.summary-table td:last-child{color:var(--text);font-weight:500;padding:8px 0}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="header">
+    <div class="header-brand">
+      <div class="header-logo"><svg width="20" height="20" viewBox="0 0 200 200"><path d="M15,100 L100,88 L185,100 L100,112 Z" fill="#faf8f3" opacity="0.3"/><path d="M100,15 L112,100 L100,185 L88,100 Z" fill="var(--gold2)"/><rect x="96" y="96" width="8" height="8" fill="var(--navy)" transform="rotate(45 100 100)"/></svg></div>
+      <div>
+        <div class="header-name" id="hdr-firm">Manan Dua</div>
+        <div class="header-reg" id="hdr-reg">AMFI MFD · ARN-365491</div>
+      </div>
+    </div>
+    <div class="header-badge" id="hdr-badge">CLIENT ONBOARDING</div>
+  </header>
+  <div class="page" id="page"></div>
+<div id="rpq-nav" style="display:none;position:sticky;bottom:0;background:var(--bg2);border-top:1px solid var(--border);padding:14px 20px;align-items:center;justify-content:space-between;z-index:50;max-width:760px;width:100%;margin:0 auto">
+  <button class="btn btn-ghost" id="rpq-prev-btn" onclick="rpqPrev()"><i class="ti ti-arrow-left"></i> <span id="rpq-prev-label">Previous</span></button>
+  <button class="btn btn-primary bsm" id="rpq-main-btn" onclick="rpqNext()" style="min-width:auto;padding:8px 20px;font-size:13px"><span id="rpq-btn-label">Next</span> <i class="ti ti-arrow-right"></i></button>
+</div>
+</div>
+
+<script>
+// ═══════════════════════════ CONFIG — UPDATE THESE ══════════════════════════
+const CFG = {
+  firm:        'Manan Dua',
+  distributor: 'Manan Dua',
+  arn:         'ARN-365491',
+  euin:        'E699297',
+  email:       'wealth@manandua.in',
+  phone:       '9310361206',
+  // Backend endpoint — the server independently validates every submission.
+  // No secret is stored here; the backend is the security boundary.
+  webAppUrl:   'https://script.google.com/macros/s/AKfycbw49VrIIGPCmgXpZosNfBDuZZKqw_T8tC5-ZRyKCCKIw1qt3WKhQ3FVWfuz8AHGp-bs/exec',
+};
+
+function FIRM(){ return CFG.firm; }
+// ════════════════════════════════════════════════════════════════════════════
+
+const TODAY = new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+const TODAY_ISO = new Date().toISOString().slice(0,10);
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let S = {
+  stage: 'details',
+  role: 'MFD',           // fixed — this is an MFD-only onboarding flow
+  details: {},          // personal details form data
+  answers: {},          // RPQ answers {qId: optionIndex}
+  rpqSection: 0,        // current section 0-4
+  agreed: false,        // disclosures consent
+  ckycData: {},         // CKYC form data
+  result: null,
+  ekyc: null,         // kyc status selection ('kyc_done' | 'kyc_pending' | 'kyc_new')
+};
+
+const STAGES = ['details','kyc','rpq','disclosures','report'];
+const STAGE_LABELS = ['Your details','KYC','Risk profile','Disclosures','Report'];
+
+// ── RPQ DATA (ported from Lovable rpq.ts exactly) ────────────────────────────
+const SECTIONS = ['capacity','tolerance','behavioral','requirement','experience'];
+const SEC_META = {
+  capacity:    {tag:'A', title:'Risk Capacity',          sub:'Your financial ability to absorb losses.',                  weight:.30},
+  tolerance:   {tag:'B', title:'Risk Tolerance',         sub:'Your emotional comfort with market ups and downs.',          weight:.25},
+  behavioral:  {tag:'C', title:'Behavioural Deep Dive',  sub:'How you actually make decisions under uncertainty.',          weight:.20},
+  requirement: {tag:'D', title:'Risk Requirement',       sub:'How much risk do your goals actually demand?',               weight:.15},
+  experience:  {tag:'E', title:'Experience & Knowledge', sub:'What you have seen and understand about markets.',            weight:.10},
+};
+
+const QUESTIONS = [
+  // A — Capacity (6 Qs, weight 30%)
+  {id:'a_age',sec:'capacity',label:'What is your current age?',opts:[['Below 30 years',4],['30–40 years',3],['41–55 years',2],['Above 55 years',1]]},
+  {id:'a_income',sec:'capacity',label:'How stable and predictable is your primary income source?',opts:[['Very stable — government job, established business or tenured profession',4],['Mostly stable — salaried private sector, consistent freelance income',3],['Somewhat variable — commissions, contract-based, or project income',2],['Highly variable or uncertain — startup, early business, irregular work',1]]},
+  {id:'a_emergency',sec:'capacity',label:'How many months of living expenses do you have in an emergency fund (liquid, accessible savings)?',opts:[['More than 12 months',4],['6–12 months',3],['3–6 months',2],['Less than 3 months',1]]},
+  {id:'a_dependents',sec:'capacity',label:'How many financial dependents do you currently support (children, elderly parents, etc.)?',opts:[['None',4],['1–2',3],['3–4',2],['5 or more',1]]},
+  {id:'a_debt',sec:'capacity',label:'What is your current total debt (EMIs, loans) as a percentage of your monthly income?',opts:[['Less than 10%',4],['10–25%',3],['26–40%',2],['More than 40%',1]]},
+  {id:'a_invest_ratio',sec:'capacity',label:'What proportion of your total monthly household income are you investing (or planning to invest)?',opts:[['More than 40% — investment is primary financial activity',4],['20–40% — investing significant portion alongside expenses',3],['10–20% — modest investing after meeting all expenses',2],['Less than 10% — most income is committed to living expenses',1]]},
+  // B — Tolerance (6 Qs, weight 25%)
+  {id:'b_fall20',sec:'tolerance',label:'If your investment portfolio fell by 20% in three months due to a market correction, what would you do?',opts:[['Sell everything immediately — I cannot tolerate this loss',1],['Sell some portion to reduce exposure and limit further losses',2],['Hold and wait — I believe markets will recover over time',3],['Invest more — this is a buying opportunity I would not want to miss',4]]},
+  {id:'b_loss20',sec:'tolerance',label:'You invested ₹10 lakhs. After one year it is worth ₹8 lakhs (a 20% loss). What is your honest reaction?',opts:[['Extreme distress — this loss significantly affects my mental peace',1],['Uncomfortable — I would regret this decision and reconsider',2],['Mildly concerned — I trust the process but it is not pleasant',3],['Completely calm — short-term losses are part of long-term investing',4]]},
+  {id:'b_comfort',sec:'tolerance',label:'Which statement best describes your personal comfort with investment volatility?',opts:[['I need stable, predictable returns — fluctuations cause me anxiety',1],['I can tolerate small fluctuations but large swings make me nervous',2],['I am reasonably comfortable with ups and downs over a 3-year+ horizon',3],['I am fully comfortable with high volatility in pursuit of high returns',4]]},
+  {id:'b_pref',sec:'tolerance',label:'Which type of investment portfolio would you most prefer, all else being equal?',opts:[['Mostly fixed deposits and debt funds — safety above all',1],['Mix of debt and equity (e.g. 70% debt, 30% equity) — stability-oriented',2],['Balanced portfolio (e.g. 50% equity, 50% debt) — moderate growth',3],['Mostly equity and growth assets — maximise long-term wealth',4]]},
+  {id:'b_crash35',sec:'tolerance',label:'Imagine markets crash 35% in six months (like March 2020). What would you honestly do?',opts:[['Sell all equity holdings — capital preservation is my priority',1],['Reduce equity, increase debt allocation to safer instruments',2],['Do nothing — stay the course and wait for recovery',3],['Aggressively increase SIP amounts to buy more units at lower prices',4]]},
+  {id:'b_max_loss',sec:'tolerance',label:'What is the maximum annual loss in portfolio value you could accept without losing sleep?',opts:[['0–5% — any significant loss is unacceptable',1],['5–10% — small loss is tolerable',2],['10–20% — moderate loss is acceptable',3],['More than 20% — I focus only on long-term',4]]},
+  // C — Behavioral (4 Qs, weight 20%)
+  {id:'c_prob',sec:'behavioral',label:'You have just won ₹10,000 on a game show. The host offers you a choice:',opts:[['Keep ₹10,000 guaranteed — take the sure money',1],['50% chance to win ₹30,000 (or walk away with nothing)',2],['25% chance to win ₹75,000 (or walk away with nothing)',3],['10% chance to win ₹1,00,000 (or walk away with nothing)',4]]},
+  {id:'c_tradeoff',sec:'behavioral',label:'Which investment portfolio would you choose for your long-term savings?',opts:[['Expected 10% return with 20% annual volatility (low risk)',1],['Expected 15% return with 35% annual volatility (moderate)',2],['Expected 20% return with 45% annual volatility (moderately aggressive)',3],['Expected 25%+ return with 55%+ annual volatility (aggressive, high risk)',4]]},
+  {id:'c_time',sec:'behavioral',label:'You have ₹5 lakhs to deploy and your financial goal is 7 years away. Which would you choose?',opts:[['Withdraw and use ₹5 lakhs today — certainty matters more than future growth',1],['Park safely to grow to ~₹7 lakhs in 7 years — FD / debt funds',2],['Invest to potentially reach ~₹12 lakhs in 7 years — balanced portfolio',3],['Invest aggressively to potentially reach ~₹18 lakhs+ in 7 years — high equity',4]]},
+  {id:'c_loss_recovery',sec:'behavioral',label:'You invested ₹2 lakhs in a mutual fund and it fell 30% (now ₹1.4 lakhs). Fundamentals unchanged. What do you do?',opts:[['Exit immediately — move to FD or liquid fund',1],['Hold but do not invest more — wait and watch',2],['Continue SIP at the same amount — I trust the long-term thesis',3],['Increase SIP — lower NAV means I am buying more units cheaply',4]]},
+  // D — Requirement (4 Qs, weight 15%)
+  {id:'d_horizon',sec:'requirement',label:'What is your primary investment time horizon — how long before you need to start using this money?',opts:[['Less than 2 years — short-term need or goal',1],['2–5 years — medium-term goal (car, house down payment)',2],['5–10 years — long-term goal (child\'s education, etc.)',3],['More than 10 years — retirement or very long-term wealth',4]]},
+  {id:'d_critical',sec:'requirement',label:'How critical or non-negotiable is the primary financial goal you are investing for?',opts:[['Absolutely critical — cannot be compromised under any circumstance',1],['Very important — significant impact if not met but some flexibility exists',2],['Important but somewhat flexible — can be adjusted or delayed if needed',3],['Aspirational — would be great to achieve, but not critical to my lifestyle',4]]},
+  {id:'d_return',sec:'requirement',label:'What annual return (post-tax) do you need to achieve your primary financial goal?',opts:[['Less than 7% — conservative target aligned with debt/FD rates',1],['7–10% — moderate growth, reachable with balanced portfolio',2],['10–14% — above-market, requires meaningful equity allocation',3],['More than 14% — aggressive target requiring high equity or alternatives',4]]},
+  {id:'d_gap',sec:'requirement',label:'When you compare your current investable assets to your financial goals, how large is the gap?',opts:[['No gap — existing assets can comfortably fund all goals at safe returns',1],['Small gap — need modest growth, achievable with moderate risk',2],['Significant gap — need above-average returns to reach my goals',3],['Very large gap — need aggressive compounding; safe returns are insufficient',4]]},
+  // E — Experience (4 Qs, weight 10%)
+  {id:'e_years',sec:'experience',label:'How many years of active investment experience do you have?',opts:[['None — this is my first investment',1],['Less than 3 years — relatively new to investing',2],['3–7 years — have experienced at least one market cycle',3],['More than 7 years — experienced multiple market cycles',4]]},
+  {id:'e_products',sec:'experience',label:'Which investment products have you actively used? (Select all that apply — scoring uses highest-complexity option)',opts:[['Only savings accounts, FDs, PPF, or insurance plans',1],['Mutual funds (debt or equity) or index funds / ETFs',2],['Direct equity (individual stocks), REITs, or hybrid funds',3],['PMS, AIF, derivatives, futures/options, structured products, or global funds',4]],multi:true},
+  {id:'e_knowledge',sec:'experience',label:'How would you honestly rate your own financial and investment knowledge?',opts:[['Basic — I understand savings and FDs but not market instruments',1],['Intermediate — I understand mutual funds, NAV, and diversification',2],['Good — I understand asset classes, risk–return tradeoffs, and market cycles',3],['Advanced — I can analyse balance sheets, valuations, macro factors, or funds',4]]},
+  {id:'e_review',sec:'experience',label:'How frequently do you review your investment portfolio?',opts:[['Rarely or never — I set it and forget it',1],['Annually — once a year review',2],['Quarterly — review every 3 months',3],['Monthly — closely track performance and make adjustments',4]]},
+];
+
+// Disclosures are role-specific - computed in pgDisclosures()
+function getDisclosures() {
+  return [
+  {t:'AMFI / SEBI Suitability Disclosure for Mutual Funds', b:['This risk profiling and suitability process is designed with reference to applicable SEBI regulations, circulars (including product labelling and risk-o-meter requirements) and AMFI guidelines for mutual fund distribution, as amended from time to time.','It assesses your investment objective, time horizon, risk tolerance, and financial position to help identify mutual fund schemes suitable for your profile.','The distributor uses this information to assess your risk profile and identify mutual fund products that may be suitable for your stated objectives, financial circumstances and risk profile, subject to the applicable distribution and suitability framework.']},
+  {t:'Client Responsibility Declaration',b:['The information provided by you is true, accurate, and complete to the best of your knowledge.','Incorrect or incomplete information may lead to unsuitable scheme suggestions.','Please let the distributor know if there is a material change in your financial situation, goals, or risk preferences.']},
+  {t:'Investment Risk Disclaimer',b:['All investments are subject to market risks, including potential loss of capital.','Past performance is not indicative of future results.','The risk profiling process does not guarantee returns or protection from losses.']},
+  {t:'Suitability Framework & Limitation Clause',b:['Scheme suggestions will take into account your risk profile, financial situation, and stated objectives.','Any investment decision taken outside a suggested scheme is entirely your own discretion and risk.']},
+  {t:'Periodic Review Clause',b:['Your risk profile should be reviewed periodically and whenever there is a material change in your financial circumstances, investment objectives or risk preferences.','Please proactively let the distributor know about significant changes in income, net worth, financial goals, or risk appetite.']},
+  {t:'Distributor Remuneration',b:['If you invest through a Regular Plan, the distributor may receive commission from the relevant mutual fund/AMC in accordance with the applicable commission structure.','Distribution expenses are reflected in the scheme\u2019s expenses as permitted under applicable regulations.']},
+  {t:'Data Recording & Audit Trail Consent',b:['You consent to this risk profiling data being recorded and retained as part of the distribution record, as applicable under SEBI and AMFI norms.','You authorise the distributor to use this information to demonstrate suitability in the event of a regulatory review.']},
+  {t:'DPDPA 2023 Data Consent',b:['Under the Digital Personal Data Protection Act 2023, you are explicitly consenting to the collection and processing of your personal data — including name, PAN, contact details, financial information, and investment preferences.','This data is collected for onboarding and processed for the purpose of mutual fund distribution services described here.','It will be retained for as long as needed for these purposes and for record-keeping applicable under AMFI/SEBI norms. You may request access to or correction of your personal data and, where processing is based on consent, withdraw that consent, subject to applicable legal and regulatory requirements, including mandatory record-retention obligations. To do so, please write to the distributor.']},
+];
+}
+
+// ── SCORING ENGINE (exact port of rpq.ts) ────────────────────────────────────
+function scoreSection(sec) {
+  const qs = QUESTIONS.filter(q=>q.sec===sec);
+  let raw = 0;
+  qs.forEach(q=>{
+    const a = S.answers[q.id];
+    if(a==null) return;
+    if(Array.isArray(a)) raw += a.length ? Math.max(...a.map(i=>q.opts[i][1])) : 0;
+    else raw += q.opts[a][1];
+  });
+  const max = qs.length * 4;
+  const pct = max>0 ? raw/max : 0;
+  const norm = Math.round(pct*1000)/10;
+  const level = pct<.5 ? 'Low' : pct<.75 ? 'Moderate' : 'High';
+  return {raw,max,pct,norm,level};
+}
+
+function computeResult() {
+  const cap  = scoreSection('capacity');
+  const tol  = scoreSection('tolerance');
+  const beh  = scoreSection('behavioral');
+  const req  = scoreSection('requirement');
+  const exp  = scoreSection('experience');
+  // Rule 2: tolerance vs behavioral — if diff >15, use lower for both
+  let bEff=tol.norm, cEff=beh.norm;
+  const tolAdj = Math.abs(bEff-cEff)>15;
+  if(tolAdj){const lo=Math.min(bEff,cEff);bEff=lo;cEff=lo;}
+  const ws = cap.norm*.30 + bEff*.25 + cEff*.20 + req.norm*.15 + exp.norm*.10;
+  const ORDER=['Conservative','Moderately Conservative','Moderate','Moderately Aggressive','Aggressive'];
+  let profile = ws<35?'Conservative':ws<50?'Moderately Conservative':ws<65?'Moderate':ws<80?'Moderately Aggressive':'Aggressive';
+  // Rule 1: capacity cap
+  let capCap=false;
+  if(cap.norm<40 && ORDER.indexOf(profile)>ORDER.indexOf('Moderate')){profile='Moderate';capCap=true;}
+  const goalMismatch = req.norm-cap.norm>25;
+  const complexRestricted = exp.raw>=4&&exp.raw<=6;
+  return {cap,tol,beh,req,exp,ws,tolAdj,capCap,goalMismatch,complexRestricted,profile};
+}
+
+// ── VALIDATION ────────────────────────────────────────────────────────────────
+function validPAN(p){return /^[A-Z]{5}[0-9]{4}[A-Z]$/.test((p||'').toUpperCase());}
+function validMobile(m,rs){
+  const d=(m||'').replace(/\D/g,'');
+  return rs==='NRI' ? d.length>=8&&d.length<=15 : d.length===10;
+}
+function validEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e||'');}
+
+function validateDetails() {
+  const d=S.details, errs={};
+  if(!d.name||d.name.trim().length<2) errs.name='Full name required (at least 2 characters)';
+  if(!d.pan||!validPAN(d.pan)) errs.pan='PAN must be in format AAAAA9999A';
+  if(!d.mobile||!validMobile(d.mobile,d.resStatus)) {
+    errs.mobile = (d.resStatus==='NRI') ? 'NRI mobile: 8–15 digits including country code' : 'Mobile must be exactly 10 digits';
+  }
+  if(d.email&&!validEmail(d.email)) errs.email='Invalid email address';
+  if(!d.dob) errs.dob='Date of birth required';
+  else if(new Date(d.dob)>new Date()) errs.dob='Date of birth cannot be in the future';
+  if(!d.city||d.city.trim().length<2) errs.city='City / place of residence required';
+  return errs;
+}
+
+// ── RENDER ───────────────────────────────────────────────────────────────────
+function updateRPQNav() {
+  var nav = document.getElementById('rpq-nav');
+  if (!nav) return;
+  if (S.stage !== 'rpq') { nav.style.display = 'none'; return; }
+  nav.style.display = 'flex';
+  var isLast = S.rpqSection >= SECTIONS.length - 1;
+  var isFirst = S.rpqSection === 0;
+  var btnLabel = document.getElementById('rpq-btn-label');
+  var prevLabel = document.getElementById('rpq-prev-label');
+  if (btnLabel) btnLabel.textContent = isLast ? 'View my risk profile' : 'Next';
+  if (prevLabel) prevLabel.textContent = isFirst ? 'Back' : 'Previous';
+}
+
+function rpqPrev() {
+  if (S.rpqSection === 0) go('kyc');
+  else prevSec();
+}
+
+function render() {
+  // Role page removed — both portals start at details
+  if(S.stage === 'role') S.stage = 'details';
+  const stageIdx = STAGES.indexOf(S.stage);
+  const page = document.getElementById('page');
+  var firmEl = document.getElementById('hdr-firm');
+  if(firmEl) firmEl.textContent = FIRM();
+  var regEl = document.getElementById('hdr-reg');
+  if(regEl) regEl.textContent = 'AMFI MFD · ' + CFG.arn;
+  document.getElementById('hdr-badge').textContent = S.stage==='done' ? 'COMPLETED' : 'CLIENT ONBOARDING';
+
+  let html = '';
+
+  // Progress bar (skip on role and done screens)
+  if(S.stage!=='role'&&S.stage!=='done') {
+    const pct = Math.round((stageIdx/( STAGES.length-1))*100);
+    html += `<div class="progress-wrap">
+      <div class="progress-steps">
+        ${STAGES.slice(0,-1).map((s,i)=>{
+          const isDone=stageIdx>i,isActive=stageIdx===i;
+          return `<div class="ps${isDone?' done':isActive?' active':''}">
+            <div class="ps-dot">${isDone?'<i class="ti ti-check" style="font-size:11px"></i>':(i+1)}</div>
+            <div class="ps-label">${STAGE_LABELS[i]}</div>
+          </div>`;
+        }).join('')}
+      </div>
+      <div class="progress-bar-wrap"><div class="progress-bar" style="width:${pct}%"></div></div>
+    </div>`;
+  }
+
+
+  // Page content (separate from progress bar)
+  if(S.stage==='details')          html += pgDetails();
+  else if(S.stage==='kyc')         html += pgKYC();
+  else if(S.stage==='rpq')         html += pgRPQ();
+  else if(S.stage==='disclosures') html += pgDisclosures();
+  else if(S.stage==='report')      html += pgReport();
+  else if(S.stage==='done')        html += pgDone();
+
+  page.innerHTML = html;
+  window.scrollTo({top:0,behavior:'smooth'});
+  bindEvents();
+  updateRPQNav();
+}
+
+
+
+// ── PAGE: PERSONAL DETAILS ────────────────────────────────────────────────────
+function pgDetails(){
+  const d=S.details, e=S._detailErrs||{};
+  const isNRI=d.resStatus==='NRI';
+  return `<div class="card">
+    <div class="card-title">Your personal details</div>
+    <p class="card-sub">This information will be used for KYC verification, account opening, and regulatory records. All fields marked * are mandatory.</p>
+    <div class="sec-label">Identity</div>
+    <div class="r2">
+      <div class="fg">
+        <label class="fl" for="d-name">Full name <em>*</em><span class="hint">As per PAN card</span></label>
+        <input id="d-name" class="${e.name?'err':''}" value="${esc(d.name||'')}" placeholder="John Doe" oninput="setD('name',this.value)">
+        ${e.name?`<div class="err-msg">${e.name}</div>`:''}
+      </div>
+      <div class="fg">
+        <label class="fl" for="d-pan">PAN <em>*</em></label>
+        <input id="d-pan" class="${e.pan?'err':''}" value="${esc(d.pan||'')}" placeholder="ABCDE1234F" maxlength="10" style="text-transform:uppercase" oninput="setD('pan',this.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,10))">
+        ${e.pan?`<div class="err-msg">${e.pan}</div>`:''}
+      </div>
+    </div>
+    <div class="r2">
+      <div class="fg">
+        <label class="fl" for="d-dob">Date of birth <em>*</em></label>
+        <input type="date" id="d-dob" class="${e.dob?'err':''}" value="${esc(d.dob||'')}" max="${TODAY_ISO}" oninput="setD('dob',this.value)">
+        ${e.dob?`<div class="err-msg">${e.dob}</div>`:''}
+      </div>
+      <div class="fg">
+        <label class="fl" for="d-rs">Residential status <em>*</em></label>
+        <select id="d-rs" onchange="setD('resStatus',this.value)">
+          <option value="RI"${d.resStatus!=='NRI'?' selected':''}>Resident Indian (RI)</option>
+          <option value="NRI"${d.resStatus==='NRI'?' selected':''}>Non-Resident Indian (NRI)</option>
+        </select>
+      </div>
+    </div>
+    <div class="sec-label" style="margin-top:8px">Contact</div>
+    <div class="r2">
+      <div class="fg">
+        <label class="fl" for="d-mob">Mobile <em>*</em><span class="hint">${isNRI?'Include country code':'10 digits'}</span></label>
+        <input id="d-mob" class="${e.mobile?'err':''}" value="${esc(d.mobile||'')}" placeholder="${isNRI?'+971 XXXXXXXXX':'98XXXXXXXX'}" oninput="setD('mobile',this.value.replace(/[^0-9+]/g,''))" maxlength="15">
+        ${e.mobile?`<div class="err-msg">${e.mobile}</div>`:''}
+      </div>
+      <div class="fg">
+        <label class="fl" for="d-email">Email address <em>*</em></label>
+        <input type="email" id="d-email" class="${e.email?'err':''}" value="${esc(d.email||'')}" placeholder="john.doe@example.com" oninput="setD('email',this.value)">
+        ${e.email?`<div class="err-msg">${e.email}</div>`:''}
+      </div>
+    </div>
+    <div class="r2">
+      <div class="fg">
+        <label class="fl" for="d-city">City / Place <em>*</em></label>
+        <input id="d-city" class="${e.city?'err':''}" value="${esc(d.city||'')}" placeholder="Mumbai" oninput="setD('city',this.value)">
+        ${e.city?`<div class="err-msg">${e.city}</div>`:''}
+      </div>
+      <div class="fg">
+        <label class="fl" for="d-occ">Occupation</label>
+        <select id="d-occ" onchange="setD('occupation',this.value)">
+          <option value="">Select occupation</option>
+          ${['Salaried — Private sector','Salaried — Government / PSU','Self-employed / Business','Professional (CA, Doctor, Lawyer, etc.)','Retired','Student','Homemaker','Other'].map(o=>`<option${d.occupation===o?' selected':''}>${o}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    <div class="sec-label" style="margin-top:8px">Financial snapshot</div>
+    <div class="r3">
+      <div class="fg">
+        <label class="fl" for="d-income">Annual income (₹)</label>
+        <select id="d-income" onchange="setD('income',this.value)">
+          <option value="">Select range</option>
+          ${['Below ₹5 lakhs','₹5–10 lakhs','₹10–25 lakhs','₹25–50 lakhs','₹50 lakhs–1 crore','Above ₹1 crore'].map(o=>`<option${d.income===o?' selected':''}>${o}</option>`).join('')}
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl" for="d-networth">Net worth (approx, ₹)</label>
+        <select id="d-networth" onchange="setD('networth',this.value)">
+          <option value="">Select range</option>
+          ${['Below ₹25 lakhs','₹25–50 lakhs','₹50 lakhs–1 crore','₹1–5 crore','Above ₹5 crore'].map(o=>`<option${d.networth===o?' selected':''}>${o}</option>`).join('')}
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl" for="d-surplus">Monthly investable surplus (₹)</label>
+        <select id="d-surplus" onchange="setD('surplus',this.value)">
+          <option value="">Select range</option>
+          ${['Below ₹10,000','₹10,000–25,000','₹25,000–50,000','₹50,000–1 lakh','Above ₹1 lakh'].map(o=>`<option${d.surplus===o?' selected':''}>${o}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-ghost" style="visibility:hidden"><i class="ti ti-arrow-left"></i> Back</button>
+      <button class="btn btn-primary" onclick="submitDetails()">Continue <i class="ti ti-arrow-right"></i></button>
+    </div>
+  </div>`;
+}
+
+// ── PAGE: DISCLOSURES ─────────────────────────────────────────────────────────
+function pgDisclosures(){
+  return `<div class="card">
+    <div class="card-title">Regulatory disclosures</div>
+    <p class="card-sub">Please read the following disclosures carefully. These reflect applicable SEBI regulations and circulars, AMFI guidelines, SEBI KYC norms, and the Prevention of Money Laundering Act, 2002, as amended from time to time.</p>
+    <div class="ntc ntc-blue" style="margin-bottom:18px">
+      <i class="ti ti-info-circle"></i>
+      <span>You are onboarding with <strong>${FIRM()}</strong> as a mutual fund investor, served by AMFI-registered distributor ${CFG.arn}. This onboarding follows applicable SEBI and AMFI regulations.</span>
+    </div>
+    ${getDisclosures().map(d=>`<div class="disc-item">
+      <div class="disc-title"><i class="ti ti-file-certificate"></i>${d.t}</div>
+      <div class="disc-body"><ul>${d.b.map(b=>`<li>${b}</li>`).join('')}</ul></div>
+    </div>`).join('')}
+    <div class="ntc ntc-blue" style="margin-bottom:12px">
+      <i class="ti ti-external-link"></i>
+      <span>Please read the <a href="https://www.sebi.gov.in/legal/circulars/dec-2021/circular-on-investor-charter-and-disclosure-of-investor-complaints-by-mutual-funds-on-their-websites-and-amfi-website-_54545.html" target="_blank" style="color:var(--navy);font-weight:600">SEBI Investor Charter for Mutual Fund Investors</a> before proceeding.</span>
+    </div>
+    <div id="consent-box" class="consent-box${S.agreed?' agreed':''}" onclick="toggleAgreed()">
+      <div class="consent-check"><i id="consent-check-icon" class="ti ti-check" style="font-size:13px;color:${S.agreed ? 'var(--navy)' : 'transparent'}"></i></div>
+      <div class="consent-text">I, <strong>${esc(S.details.name||'the client')}</strong>, have read and understood all the above disclosures. I provide my explicit consent under the Digital Personal Data Protection Act, 2023 for the collection and processing of my personal and financial data by <strong>${FIRM()}</strong> for the purposes described above. I confirm that the information provided is true and accurate to the best of my knowledge.</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="go('rpq')"><i class="ti ti-arrow-left"></i> Back</button>
+      <button id="disc-next-btn" class="btn btn-primary" style="opacity:${S.agreed?'1':'0.45'};background:${S.agreed?'var(--navy)':'#9ca3af'}" onclick="discNext()">Continue to report <i class="ti ti-arrow-right"></i></button>
+    </div>
+  </div>`;
+}
+
+// ── PAGE: RPQ ─────────────────────────────────────────────────────────────────
+function pgRPQ(){
+  const sec = SECTIONS[S.rpqSection];
+  const meta = SEC_META[sec];
+  const qs = QUESTIONS.filter(q=>q.sec===sec);
+  const answered = QUESTIONS.filter(q=>S.answers[q.id]!=null).length;
+  const secComplete = qs.every(q=>S.answers[q.id]!=null);
+  const isLast = S.rpqSection===SECTIONS.length-1;
+
+  return `<div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div>
+        <div style="font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Section ${meta.tag} of E · ${meta.weight*100|0}% weight</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--navy)">${meta.title}</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:3px">${meta.sub}</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0;margin-left:16px">
+        <div id="rpq-answered-count" style="font-size:22px;font-weight:700;color:var(--navy)">${answered}/${QUESTIONS.length}</div>
+        <div style="font-size:11px;color:var(--text3)">questions answered</div>
+      </div>
+    </div>
+    <div class="sec-nav">
+      ${SECTIONS.map((s,i)=>{
+        const done=i<S.rpqSection;
+        const active=i===S.rpqSection;
+        return `<div class="sec-pip${done?' done':active?' active':''}" onclick="jumpSec(${i})" title="${SEC_META[s].title}"></div>`;
+      }).join('')}
+      <div class="sec-meta">${SECTIONS.slice(0,S.rpqSection+1).map(s=>SEC_META[s].title).pop()}</div>
+    </div>
+    ${qs.map((q,qi)=>{
+      const ans=S.answers[q.id];
+      const answered2=q.multi?Array.isArray(ans)&&ans.length>0:ans!=null;
+      return `<div class="q-card${answered2?' answered':''}" data-qid="${q.id}">
+        <div class="q-num">Q${QUESTIONS.indexOf(q)+1} / ${QUESTIONS.length}${q.multi?' · Select all that apply':''}</div>
+        <div class="q-label">${q.label}</div>
+        <div class="q-opts">
+          ${q.opts.map((opt,oi)=>{
+            const sel = q.multi ? (Array.isArray(ans)&&ans.includes(oi)) : ans===oi;
+            return `<div class="q-opt${sel?' sel':''}" onclick="selectOpt('${q.id}',${oi},${!!q.multi})">
+              <div class="q-dot"></div>
+              <span>${opt[0]}</span>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+
+// ── PAGE: CKYC ────────────────────────────────────────────────────────────────
+function renderNomNotice(){
+  const d=S.ckycData;
+  if(d.holdingType==='joint'){
+    return `<div class="ntc ntc-blue" style="margin-bottom:12px"><i class="ti ti-info-circle"></i><span>Nomination is optional for jointly held folios. You may provide a nomination preference if applicable.</span></div>`;
+  }
+  return `<div class="ntc ntc-gold" style="margin-bottom:12px"><i class="ti ti-alert-triangle"></i><span>Mutual fund folios require you to either register a nominee or provide a formal opt-out declaration. Please select one below.</span></div>`;
+}
+function renderNomExtra(){
+  const d=S.ckycData, e=S._ckycErrs||{};
+  if(d.nomination==='submit'){
+    const nominees = d.nominees && d.nominees.length ? d.nominees : [{name:'',relation:''}];
+    return `<div class="card" style="background:var(--bg3);margin-bottom:16px">
+      <div class="sec-label">Nominee details</div>
+      ${nominees.map((n,i)=>`
+        <div style="border-top:${i>0?'1px solid var(--border)':'none'};padding-top:${i>0?'12px':'0'};margin-top:${i>0?'12px':'0'}">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span style="font-size:12px;font-weight:600;color:var(--text2)">Nominee ${i+1}</span>
+            ${nominees.length>1?`<button type="button" class="btn-ghost bsm" style="padding:2px 8px" onclick="removeNominee(${i})">Remove</button>`:''}
+          </div>
+          <div class="r2">
+            <div class="fg">
+              <label class="fl" for="nom-name-${i}">Full name <em>*</em></label>
+              <input id="nom-name-${i}" class="${e['nomName'+i]?'err':''}" value="${esc(n.name||'')}" placeholder="As per ID proof" oninput="setNominee(${i},'name',this.value)">
+              ${e['nomName'+i]?`<div class="err-msg">${e['nomName'+i]}</div>`:''}
+            </div>
+            <div class="fg">
+              <label class="fl" for="nom-rel-${i}">Relationship <em>*</em></label>
+              <select id="nom-rel-${i}" class="${e['nomRelation'+i]?'err':''}" onchange="setNominee(${i},'relation',this.value)">
+                <option value="">Select relationship</option>
+                ${['Spouse','Son','Daughter','Father','Mother','Brother','Sister','Other'].map(o=>`<option${n.relation===o?' selected':''}>${o}</option>`).join('')}
+              </select>
+              ${e['nomRelation'+i]?`<div class="err-msg">${e['nomRelation'+i]}</div>`:''}
+            </div>
+          </div>
+        </div>
+      `).join('')}
+      ${nominees.length<3?`<button type="button" class="btn btn-ghost bsm" style="margin-top:10px" onclick="addNominee()"><i class="ti ti-plus"></i> Add another nominee (optional, up to 3)</button>`:''}
+      <p style="font-size:11px;color:var(--text3);margin-top:10px">You’ll Nominee registration will be formalised with the AMC as part of the folio opening process.</p>
+    </div>`;
+  }
+  if(d.nomination==='optout'){
+    return `<div class="ntc ntc-blue" style="margin-bottom:16px"><i class="ti ti-info-circle"></i><span>You’ll This opt-out preference will be recorded with the AMC as part of the folio opening process.</span></div>`;
+  }
+  return '';
+}
+function addNominee(){
+  if(!S.ckycData.nominees) S.ckycData.nominees=[{name:'',relation:''}];
+  if(S.ckycData.nominees.length<3) S.ckycData.nominees.push({name:'',relation:''});
+  var extra=document.getElementById('nom-extra');
+  if(extra) extra.innerHTML=renderNomExtra();
+}
+function removeNominee(idx){
+  if(S.ckycData.nominees && S.ckycData.nominees.length>1) S.ckycData.nominees.splice(idx,1);
+  var extra=document.getElementById('nom-extra');
+  if(extra) extra.innerHTML=renderNomExtra();
+}
+function setNominee(idx,field,value){
+  if(!S.ckycData.nominees) S.ckycData.nominees=[{name:'',relation:''}];
+  if(!S.ckycData.nominees[idx]) S.ckycData.nominees[idx]={name:'',relation:''};
+  S.ckycData.nominees[idx][field]=value;
+}
+// ── PAGE: KYC (consolidated — was pgCKYC + pgEKYC) ─────────────────────────────
+// Underlying data is kept backward-compatible: KYC status still lives in S.ekyc
+// and everything else (KYC identifier, KRA, nomination, FATCA, kycRef) still
+// lives in S.ckycData — only the client-facing presentation is merged into one
+// step. Report/PDF/submission-JSON generation reads the same two objects.
+function pgKYC(){
+  const d=S.ckycData, e=S._ckycErrs||{};
+  const investorLabel='Investor';
+  return `<div class="card">
+    <div class="card-title">KYC</div>
+    <p class="card-sub">Let's first establish your KYC status, then capture the KYC-related consents and details required for a mutual fund folio.</p>
+
+    <div class="sec-label">Your current KYC status</div>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:10px">If you have ever invested in mutual funds, opened a Demat account, or completed any form of bank KYC, your KYC is very likely already registered. You can check your status instantly using your PAN before selecting below.</div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:6px">
+      ${[['kyc_done','My KYC is already verified'],['kyc_pending','My KYC is currently in process'],['kyc_new','I need to complete my KYC']].map(([val,label])=>`<div class="q-opt${S.ekyc===val?' sel':''}" data-ekyc="${val}" onclick="setEKYC('${val}')"><div class="q-dot"></div><span>${label}</span></div>`).join('')}
+    </div>
+    <div id="kyc-status-block">${renderKycStatusBlock()}</div>
+    <div class="ntc ntc-blue" style="margin-bottom:16px">
+      <i class="ti ti-info-circle"></i>
+      <span>Not sure of your status? Check it instantly on the official CERSAI portal using your PAN and date of birth. <a href="https://www.ckycindia.in" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600">Check on CERSAI <i class="ti ti-external-link" style="font-size:10px"></i></a></span>
+    </div>
+
+    <div class="sec-label" style="margin-top:8px">CKYC / KRA data-access consent</div>
+    <div class="ckyc-consent-text">
+      <strong>I, ${esc(S.details.name||'[Name]')}</strong> (PAN: <strong>${esc((S.details.pan||'[PAN]').toUpperCase())}</strong>), give my consent to <strong>${FIRM()}</strong> (AMFI ${CFG.arn}) to:<br><br>
+      (a) access, fetch, view and download my KYC records available with the CKYCR / any KRA using my KYC Identifier and/or PAN, for the purpose of verifying my KYC status;<br>
+      (b) use such KYC information solely to facilitate mutual fund transactions and distribution services under SEBI regulations on KYC norms and the AMFI Code of Conduct.<br><br>
+      I acknowledge that the CKYCR / KRA may send an SMS / e-mail notification when my records are accessed. This consent shall remain valid until withdrawn by me in writing.
+    </div>
+    <div class="sec-label">Confirm your details for CKYC</div>
+    <div class="r2">
+      <div class="fg">
+        <label class="fl" for="ck-name">${investorLabel} name <em>*</em></label>
+        <input id="ck-name" value="${esc(S.details.name||'')}" readonly style="background:var(--bg3);color:var(--text2)">
+      </div>
+      <div class="fg">
+        <label class="fl" for="ck-pan">PAN <em>*</em></label>
+        <input id="ck-pan" value="${esc((S.details.pan||'').toUpperCase())}" readonly style="background:var(--bg3);color:var(--text2);text-transform:uppercase">
+      </div>
+    </div>
+    <div class="r2">
+      <div class="fg">
+        <label class="fl" for="ck-id">CKYC Number <span class="hint">(14-digit, if known)</span></label>
+        <input id="ck-id" value="${esc(d.kycId||'')}" placeholder="14-digit CKYC number" oninput="setCKYC('kycId',this.value)">
+        <div style="font-size:11px;color:var(--text3);margin-top:3px">This is the 14-digit number on your CKYC acknowledgement, separate from your KRA reference number above.</div>
+      </div>
+      <div class="fg">
+        <label class="fl" for="ck-kra">KYC Registration Agency (KRA)</label>
+        <select id="ck-kra" onchange="setCKYC('kra',this.value)">
+          <option value="">Select KRA (if known)</option>
+          ${['CAMS KRA','CVL KRA (CDSL)','KFIN KRA','NDML KRA','NSE KRA'].map(o=>`<option${d.kra===o?' selected':''}>${o}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    <div class="r2">
+      <div class="fg">
+        <label class="fl" for="ck-address">Registered address</label>
+        <textarea id="ck-address" rows="2" placeholder="Address as per KYC records" oninput="setCKYC('address',this.value)">${esc(d.address||'')}</textarea>
+      </div>
+      <div class="fg">
+        <label class="fl" for="ck-place">Place of execution</label>
+        <input id="ck-place" value="${esc(S.details.city||d.place||'')}" placeholder="City" oninput="setCKYC('place',this.value)">
+      </div>
+    </div>
+    <div class="sec-label" style="margin-top:8px">Holding type</div>
+    <div class="r2" style="margin-bottom:4px">
+      <div class="fg">
+        <select id="ck-holding" onchange="setCKYC('holdingType',this.value)">
+          <option value="single"${d.holdingType!=='joint'?' selected':''}>Single</option>
+          <option value="joint"${d.holdingType==='joint'?' selected':''}>Joint</option>
+        </select>
+      </div>
+    </div>
+    <div class="sec-label" style="margin-top:8px">Nomination preference</div>
+    <div id="nom-notice">${renderNomNotice()}</div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:12px">
+      <div class="q-opt${d.nomination==='submit'?' sel':''}" data-nom="submit" onclick="setCKYC('nomination','submit')"><div class="q-dot"></div><span>I wish to register a nominee</span></div>
+      <div class="q-opt${d.nomination==='optout'?' sel':''}" data-nom="optout" onclick="setCKYC('nomination','optout')"><div class="q-dot"></div><span>I wish to opt out of nomination. I understand that in the event of death without a nominee, the folio will be subject to transmission procedures.</span></div>
+    </div>
+    <div id="nom-extra">${renderNomExtra()}</div>
+    <div class="sec-label" style="margin-top:8px">FATCA / CRS preliminary screening</div>
+    <p style="font-size:12px;color:var(--text2);margin-bottom:10px">This is a preliminary screening under CBDT Rules 114F–114H to help identify your tax residency status for regulatory reporting purposes. A formal FATCA/CRS self-declaration will be completed separately through the AMC/RTA as part of your folio opening process. Your tax residency is determined by the tax laws of each country and is not necessarily the same as your citizenship.</p>
+    <label class="fl">Are you a tax resident of India only, or also of another country? <em>*</em></label>
+    <div style="display:flex;flex-direction:column;gap:8px;margin:6px 0 4px">
+      <div class="q-opt${d.fatcaIndiaOnly==='yes'?' sel':''}" data-fatca-india="yes" onclick="setFatca('fatcaIndiaOnly','yes')"><div class="q-dot"></div><span>India only. I am not a tax resident of any other country.</span></div>
+      <div class="q-opt${d.fatcaIndiaOnly==='no'?' sel':''}" data-fatca-india="no" onclick="setFatca('fatcaIndiaOnly','no')"><div class="q-dot"></div><span>I am also a tax resident of another country</span></div>
+    </div>
+    ${e.fatcaIndiaOnly?`<div class="err-msg" style="margin-bottom:8px">${e.fatcaIndiaOnly}</div>`:''}
+    <div id="fatca-extra">${renderFatcaExtra()}</div>
+    <label class="fl" style="margin-top:14px;display:block">Are you a US person for FATCA purposes (US citizen, US tax resident, or US Green Card holder)? <em>*</em></label>
+    <div style="display:flex;flex-direction:column;gap:8px;margin:6px 0 4px">
+      <div class="q-opt${d.fatcaUSPerson==='yes'?' sel':''}" data-fatca-us="yes" onclick="setFatca('fatcaUSPerson','yes')"><div class="q-dot"></div><span>Yes</span></div>
+      <div class="q-opt${d.fatcaUSPerson==='no'?' sel':''}" data-fatca-us="no" onclick="setFatca('fatcaUSPerson','no')"><div class="q-dot"></div><span>No</span></div>
+    </div>
+    ${e.fatcaUSPerson?`<div class="err-msg" style="margin-bottom:8px">${e.fatcaUSPerson}</div>`:''}
+    <div class="ntc ntc-gold" style="margin-top:14px">
+      <i class="ti ti-alert-triangle"></i>
+      <span>KYC verification is mandatory before any transaction. If KYC is pending, onboarding can still proceed, but services cannot commence until KYC is independently confirmed by the distributor.</span>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="go('details')"><i class="ti ti-arrow-left"></i> Back</button>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-primary" onclick="submitKYC()">Continue <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderKycStatusBlock(){
+  if(!S.ekyc) return '';
+  // For first-time KYC: show the self-service guide first, no reference number needed.
+  if(S.ekyc === 'kyc_new') return renderKycNewGuide();
+  // For already verified or in process: show KRA links then reference number field.
+  return renderKraGuidance() + renderEkycRef();
+}
+
+function renderEkycRef(){
+  if(!S.ekyc || S.ekyc === 'kyc_new') return '';
+  var required = S.ekyc === 'kyc_done';
+  var e = S._ekycErrs || {};
+  var label = required
+    ? 'KYC or CKYC reference number <em>*</em>'
+    : 'KYC or CKYC reference number <span class="hint">(optional)</span>';
+  var helper = required
+    ? 'Please enter either your KYC reference number (from your KRA acknowledgement) or your 14-digit CKYC number. Either is acceptable.'
+    : 'If you have your KYC reference or CKYC number handy, you may enter it here.';
+  return `<div class="sec-label">KYC reference</div>
+    <div class="fg" style="margin-bottom:14px">
+      <label class="fl" for="ekyc-ref">${label}</label>
+      <input id="ekyc-ref" class="${e.kycRef?'err':''}" value="${esc(S.ckycData.kycRef||'')}" placeholder="e.g. CVLKRA/2024/XXXXXXXX or 14-digit CKYC number" oninput="setCKYC('kycRef',this.value)">
+      <div style="font-size:11px;color:var(--text3);margin-top:3px">${helper}</div>
+      ${e.kycRef?`<div class="err-msg">${e.kycRef}</div>`:''}
+    </div>`;
+}
+
+function renderKraGuidance(){
+  var status = S.ekyc;
+  if(status === 'kyc_done' || status === 'kyc_pending'){
+    var heading = status === 'kyc_pending' ? 'Check your KYC status' : 'Verify your existing KYC record';
+    var sub = status === 'kyc_pending'
+      ? 'You can check the current status of your KYC application on the official CERSAI portal. Enter your PAN and date of birth to see your status instantly.'
+      : 'You can look up your existing KYC record and CKYC number on the official CERSAI portal. Enter your PAN and date of birth. The distributor will also independently re-confirm your status before any transaction.';
+    return `<div class="card" style="margin-bottom:12px">
+      <div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px"><i class="ti ti-id-badge" style="color:var(--gold)"></i> ${heading}</div>
+      <p style="font-size:12px;color:var(--text2);margin-bottom:10px">${sub}</p>
+      <a href="https://www.ckycindia.in" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:6px"><i class="ti ti-external-link"></i> Check on CERSAI (ckycindia.in)</a>
+      <div style="font-size:11px;color:var(--text3);margin-top:8px">This is the official government portal for CKYC. It shows your status, CKYC number and registration date in one place, regardless of which KRA holds your record.</div>
+    </div>`;
+  }
+  return '';
+}
+
+function renderKycNewGuide(){
+  return `<div class="card" style="margin-bottom:12px">
+    <div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px"><i class="ti ti-rocket" style="color:var(--gold)"></i> Complete your KYC online in 2-3 minutes</div>
+    <p style="font-size:12px;color:var(--text2);margin-bottom:10px">KYC is a one-time process that verifies your identity for all mutual fund investments. Once done, it is valid across all fund houses and platforms — you will never need to repeat it.</p>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.8">
+      <strong style="color:var(--navy)">What you need:</strong> your PAN and the mobile number linked to your Aadhaar card.<br>
+      <strong style="color:var(--navy)">How it works:</strong> visit the link below, enter your PAN, verify using the OTP sent to your Aadhaar-linked mobile, and you are done. Note your KYC reference number once the process is complete, then come back and select <strong>My KYC is already verified</strong> above.
+    </div>
+    <a href="https://www.kfinkra.in" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:8px"><i class="ti ti-external-link"></i> Complete KYC on KFIN KRA</a>
+    <div style="font-size:11.5px;color:var(--text3);background:var(--bg3);border-radius:var(--r);padding:8px 10px;line-height:1.6;margin-top:4px">
+      <i class="ti ti-info-circle" style="color:var(--gold)"></i>
+      <strong>Important:</strong> Aadhaar-based eKYC requires a mobile number registered with Aadhaar. If your mobile is not linked to Aadhaar, please contact ${esc(CFG.distributor)} for assistance.
+    </div>
+  </div>`;
+}
+
+function setEKYC(val) {
+  var allowed = ['kyc_done','kyc_pending','kyc_new'];
+  if(allowed.indexOf(val) === -1) return;
+  S.ekyc = val;
+  document.querySelectorAll('[data-ekyc]').forEach(function(el){
+    var isSelected = el.getAttribute('data-ekyc') === val;
+    el.classList.toggle('sel', isSelected);
+    var dot = el.querySelector('.q-dot');
+    if(dot) dot.innerHTML = isSelected ? '<i class="ti ti-check" style="font-size:10px"></i>' : '';
+  });
+  S._ekycErrs = {};
+  var block = document.getElementById('kyc-status-block');
+  if(block) block.innerHTML = renderKycStatusBlock();
+}
+
+function submitKYC(){
+  var errs = {};
+  if(!S.ekyc){
+    errs.ekyc = 'Please select your current KYC status.';
+  }
+  // For already-verified: either KYC reference or CKYC number required.
+  // For kyc_new (first-time): no reference number exists yet, so nothing required.
+  if(S.ekyc==='kyc_done' && !(S.ckycData.kycRef||'').trim() && !(S.ckycData.kycId||'').trim()){
+    errs.kycRef = 'Please enter either your KYC reference number or your 14-digit CKYC number to continue.';
+  }
+  if(S.ckycData.holdingType!=='joint' && !S.ckycData.nomination){
+    errs.nomination = 'Please select your nomination preference (register a nominee or opt out).';
+  }
+  if(S.ckycData.nomination==='submit'){
+    var nominees = S.ckycData.nominees && S.ckycData.nominees.length ? S.ckycData.nominees : [{name:'',relation:''}];
+    nominees.forEach(function(n,i){
+      if(!n.name || n.name.trim().length<2) errs['nomName'+i] = 'Please enter nominee ' + (i+1) + '\u2019s full name.';
+      if(!n.relation) errs['nomRelation'+i] = 'Please select nominee ' + (i+1) + '\u2019s relationship to you.';
+    });
+  }
+  if(!S.ckycData.fatcaIndiaOnly){
+    errs.fatcaIndiaOnly = 'Please indicate whether you are a tax resident of India only, or also of another country.';
+  }
+  if(S.ckycData.fatcaIndiaOnly==='no'){
+    if(!S.ckycData.fatcaCountry || !S.ckycData.fatcaCountry.trim()) errs.fatcaCountry = 'Please enter your country of tax residency.';
+    if(!S.ckycData.fatcaTIN || !S.ckycData.fatcaTIN.trim()) errs.fatcaTIN = 'Please enter your Tax Identification Number, or \u201cNot applicable\u201d if none is issued.';
+  }
+  if(!S.ckycData.fatcaUSPerson){
+    errs.fatcaUSPerson = 'Please answer whether you are a US citizen, resident, or Green Card holder.';
+  }
+  if(Object.keys(errs).length){
+    S._ckycErrs = errs;
+    S._ekycErrs = errs.kycRef ? {kycRef: errs.kycRef} : {};
+    render();
+    showObModal({kind:'err', title:'Please complete the following', body:'\u2022 ' + Object.values(errs).join('\n\u2022 ')});
+    return;
+  }
+  S._ckycErrs = {};
+  S._ekycErrs = {};
+  go('rpq');
+}
+
+function renderFatcaExtra(){
+  const d=S.ckycData, e=S._ckycErrs||{};
+  if(d.fatcaIndiaOnly!=='no') return '';
+  return `<div class="card" style="background:var(--bg3);margin-bottom:12px">
+    <div class="r2">
+      <div class="fg">
+        <label class="fl" for="fatca-country">Country of tax residency (other than India) <em>*</em></label>
+        <input id="fatca-country" class="${e.fatcaCountry?'err':''}" value="${esc(d.fatcaCountry||'')}" placeholder="e.g. United States" oninput="setCKYC('fatcaCountry',this.value)">
+        ${e.fatcaCountry?`<div class="err-msg">${e.fatcaCountry}</div>`:''}
+      </div>
+      <div class="fg">
+        <label class="fl" for="fatca-tin">Tax Identification Number (TIN) <em>*</em></label>
+        <input id="fatca-tin" class="${e.fatcaTIN?'err':''}" value="${esc(d.fatcaTIN||'')}" placeholder="Enter &quot;Not applicable&quot; if not issued" oninput="setCKYC('fatcaTIN',this.value)">
+        ${e.fatcaTIN?`<div class="err-msg">${e.fatcaTIN}</div>`:''}
+      </div>
+    </div>
+  </div>`;
+}
+
+function setFatca(k,v){
+  S.ckycData[k]=v;
+  var attr = k==='fatcaIndiaOnly' ? 'data-fatca-india' : 'data-fatca-us';
+  document.querySelectorAll('['+attr+']').forEach(function(el){
+    var isSelected = el.getAttribute(attr)===v;
+    el.classList.toggle('sel',isSelected);
+    var dot=el.querySelector('.q-dot');
+    if(dot) dot.innerHTML=isSelected?'<i class="ti ti-check" style="font-size:10px"></i>':'';
+  });
+  if(k==='fatcaIndiaOnly'){
+    var extra=document.getElementById('fatca-extra');
+    if(extra) extra.innerHTML=renderFatcaExtra();
+  }
+}
+
+// ── PAGE: REPORT ──────────────────────────────────────────────────────────────
+function pgReport(){
+  const r=S.result;
+  const profile=r.profile;
+    const profileColors={'Conservative':'#0A6E4F','Moderately Conservative':'#0F766E','Moderate':'#1E3A5F','Moderately Aggressive':'#92400E','Aggressive':'#991B1B'};
+  const profileColor=profileColors[profile]||'var(--navy)';
+
+  return `<div>
+    <div class="report-hero">
+      
+      <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">${esc(S.details.name)}</div>
+      <div class="report-profile" style="color:var(--gold2)">${profile}</div>
+      <div class="report-score">Weighted risk score: ${r.ws.toFixed(1)} / 100 · ${TODAY}</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:8px;line-height:1.6">Scheme suitability will be assessed separately based on the relevant scheme characteristics, your investment objective, time horizon and other applicable information.</div>
+
+    </div>
+    ${r.capCap?`<div class="override-notice"><i class="ti ti-alert-triangle"></i><strong>Risk-capacity safeguard:</strong> Your financial circumstances have been considered in determining the overall risk profile, which has been capped at Moderate.</div>`:''}
+    ${r.tolAdj?`<div class="override-notice"><i class="ti ti-alert-triangle"></i><strong>Risk-profile adjustment:</strong> Your responses showed a material difference between stated risk tolerance and other responses. The lower result has been used for the overall assessment.</div>`:''}
+    ${r.goalMismatch?`<div class="override-notice"><i class="ti ti-alert-triangle"></i><strong>Goal and capacity mismatch noted:</strong> Your investment goals require significantly higher returns than your current financial capacity supports. Please discuss goal prioritisation with the distributor.</div>`:''}
+    <div class="score-sections">
+      ${[['A','Risk Capacity',r.cap],['B','Tolerance',r.tol],['C','Behavioural',r.beh],['D','Requirement',r.req],['E','Experience',r.exp]].map(([tag,lbl,sc])=>`
+      <div class="score-sec">
+        <div class="ss-label">Section ${tag} — ${lbl}</div>
+        <div class="ss-val">${sc.norm.toFixed(0)}</div>
+        <div class="ss-sub">/100 · ${sc.level}</div>
+      </div>`).join('')}
+    </div>
+    <div class="card">
+      <div class="sec-label">Regulatory disclosures — client acknowledgement</div>
+      ${getDisclosures().map(d=>`<div class="disc-item"><div class="disc-title"><i class="ti ti-file-certificate"></i>${d.t}</div></div>`).join('')}
+      <div class="declaration">
+        <p>I, <strong>${esc(S.details.name)}</strong> (PAN: ${esc((S.details.pan||'').toUpperCase())}), confirm that:</p>
+        <p>1. I have answered all questions truthfully to the best of my knowledge and understanding.</p>
+        <p>2. I have read and understood all regulatory disclosures provided by ${FIRM()} (AMFI ${CFG.arn}).</p>
+        <p>3. I have reviewed my assessed risk profile of <strong>${profile}</strong> and understand that it is based on the information I have provided. I understand that scheme suitability will be assessed separately based on my investment objective, time horizon and other applicable information.</p>
+        <p>4. I consent to this data being collected, stored and processed for the purpose of mutual fund distribution services, and retained as required under SEBI KYC norms, the AMFI Code of Conduct, and the Prevention of Money Laundering Act, 2002. I am aware of my rights under the Digital Personal Data Protection Act, 2023.</p>
+        <p>5. I understand that this risk profile should be reviewed periodically and whenever there is a material change in my financial circumstances, investment objectives or risk preferences.</p>
+        <p>Date: ${TODAY} · Place: ${esc(S.details.city||'—')}</p>
+      </div>
+      <div class="r2">
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Client acknowledgement</div>
+          <div class="esign-tabs">
+            <div class="esign-tab on" data-mode="draw" onclick="setSignMode('draw')"><i class="ti ti-pencil" style="font-size:12px"></i> Draw</div>
+            <div class="esign-tab" data-mode="type" onclick="setSignMode('type')"><i class="ti ti-keyboard" style="font-size:12px"></i> Type name</div>
+            <div class="esign-tab" data-mode="upload" onclick="setSignMode('upload')"><i class="ti ti-upload" style="font-size:12px"></i> Upload</div>
+          </div>
+          <div class="esign-wrap">
+            <div id="esign-draw-wrap">
+              <canvas id="esign-canvas" class="esign-canvas"></canvas>
+              <div class="esign-bar">
+                <span id="esign-status-draw">Draw your signature above</span>
+                <button class="btn btn-ghost" style="padding:2px 8px;font-size:11px" onclick="clearSign()"><i class="ti ti-refresh" style="font-size:11px"></i> Clear</button>
+              </div>
+            </div>
+            <div id="esign-type-wrap" style="display:none">
+              <input id="esign-type-input" placeholder="Type your full name" style="font-family:'Cormorant Garamond',serif;font-size:22px;padding:16px;border:none;outline:none;width:100%" oninput="updateSignStatus()">
+              <div class="esign-bar"><span id="esign-status-type">Type your name above</span></div>
+            </div>
+            <div id="esign-upload-wrap" style="display:none;padding:16px;text-align:center;background:var(--bg3)">
+              <div id="esign-upload-prompt" onclick="document.getElementById('esign-upload-input').click()" style="cursor:pointer">
+                <i class="ti ti-signature" style="font-size:28px;color:var(--text3);display:block;margin-bottom:6px"></i>
+                <div style="font-size:12px;color:var(--text2)" id="esign-upload-label">Tap to upload a photo of your signature</div>
+              </div>
+              <img id="esign-upload-preview" style="max-height:80px;max-width:100%;display:none;margin-top:8px;border-radius:4px">
+              <div id="esign-upload-actions" style="display:none;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap">
+                <button type="button" class="btn btn-ghost bsm" onclick="previewSigUpload()"><i class="ti ti-eye" style="font-size:11px"></i> Preview</button>
+                <button type="button" class="btn btn-ghost bsm" onclick="document.getElementById('esign-upload-input').click()"><i class="ti ti-refresh" style="font-size:11px"></i> Change</button>
+                <button type="button" class="btn btn-ghost bsm" onclick="removeSigUpload()"><i class="ti ti-trash" style="font-size:11px"></i> Remove</button>
+              </div>
+              <input type="file" id="esign-upload-input" accept="image/jpeg,image/png" style="display:none" onchange="handleSigUpload(this)">
+              <div class="esign-bar" style="justify-content:center"><span id="esign-status-upload">Upload a signature image above</span></div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:var(--text3);margin-top:6px">By acknowledging above you confirm your consent to this risk profile and all disclosures. Acknowledgement captured for the onboarding record.</div>
+          <div style="font-size:11px;color:var(--text2);margin-top:4px">${esc(S.details.name||'')} · PAN: ${esc((S.details.pan||'').toUpperCase())} · ${TODAY} · ${FIRM()}</div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Distributed by</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.8">
+            <div style="font-weight:600;color:var(--navy)">${CFG.distributor}</div>
+            <div>AMFI Registered Mutual Fund Distributor</div>
+            <div>AMFI ${CFG.arn} · EUIN ${CFG.euin}</div>
+          </div>
+          <div class="ntc ntc-blue" style="margin-top:10px;font-size:11px">
+            <i class="ti ti-info-circle"></i>
+            <span>The distributor will review your submission and be in touch before any transaction is initiated.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="submit-progress-overlay" style="display:none;position:fixed;inset:0;background:rgba(255,255,255,0.92);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+      <div style="width:48px;height:48px;border:3px solid var(--border2);border-top-color:var(--navy);border-radius:50%;animation:spin 1s linear infinite"></div>
+      <div id="submit-progress-msg" style="font-size:15px;font-weight:600;color:var(--navy);text-align:center">Submitting your onboarding\u2026</div>
+      <div style="font-size:13px;color:var(--text2);text-align:center;max-width:280px">Please keep this page open until you see the confirmation screen. Your submission is being saved securely.</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="go('disclosures')"><i class="ti ti-arrow-left"></i> Back</button>
+      <button id="submit-onboarding-btn" class="btn btn-primary" onclick="submitOnboarding()">Submit onboarding <i class="ti ti-arrow-right"></i></button>
+    </div>
+  </div>`;
+}
+
+// ── PAGE: DONE ────────────────────────────────────────────────────────────────
+function pgDone(){
+  var r = S.result;
+  // S._serverProfile is the authoritative result returned by the backend.
+  // Fall back to the client-computed profile only if the server hasn't responded yet
+  // (should not happen on this screen, but defensive).
+  var displayProfile = S._serverProfile || (r && r.profile) || '\u2014';
+  var profileMismatch = S._serverProfile && r && r.profile && S._serverProfile !== r.profile;
+  var kycLabel = S.ekyc==='kyc_done'    ? 'Stated as already verified \u2014 pending confirmation by the distributor'
+               : S.ekyc==='kyc_pending' ? 'Currently in process'
+               : S.ekyc==='kyc_new'     ? 'KYC not yet completed \u2014 to be completed via self-service eKYC'
+               : 'Not yet completed';
+  return `<div class="success-screen">
+    <div class="success-icon"><i class="ti ti-circle-check"></i></div>
+    <div class="success-title">Onboarding submitted successfully</div>
+    <p class="success-sub">Thank you${S.details.name?', '+esc(S.details.name):''}. Your completed onboarding has been received${S._submissionId?' (reference '+esc(S._submissionId)+')':''}. ${esc(CFG.distributor)} will confirm your KYC status and be in touch shortly. Services cannot commence until KYC is independently confirmed.</p>
+    ${profileMismatch ? `<div class="ntc ntc-gold" style="max-width:480px;margin:0 auto 16px;text-align:left">
+      <i class="ti ti-alert-triangle"></i>
+      <span>Your risk profile was independently verified by our system. The confirmed profile is <strong>${esc(S._serverProfile)}</strong> (your session showed <strong>${esc(r.profile)}</strong>). Your downloaded documents reflect the confirmed profile.</span>
+    </div>` : ''}
+    <div class="card" style="text-align:left;max-width:480px;margin:0 auto 24px">
+      <div class="sec-label">Summary</div>
+      <table class="summary-table">
+        <tr><td>Reference</td><td>${esc(S._submissionId||'\u2014')}</td></tr>
+        <tr><td>Name</td><td>${esc(S.details.name)}</td></tr>
+        <tr><td>PAN</td><td>${esc((S.details.pan||'').toUpperCase())}</td></tr>
+        <tr><td>Mobile</td><td>${esc(S.details.mobile||'\u2014')}</td></tr>
+        <tr><td>Engagement type</td><td>Mutual Fund Distribution (AMFI MFD)</td></tr>
+        <tr><td>Risk profile</td><td><strong>${esc(displayProfile)}</strong>${S._serverWs?' <span style="font-size:11px;color:var(--text3)">(score: '+S._serverWs+'/100)</span>':''}</td></tr>
+        <tr><td>Onboarding date</td><td>${TODAY}</td></tr>
+        <tr><td>Distributor</td><td>${CFG.distributor} \u00b7 AMFI ${CFG.arn}</td></tr>
+        <tr><td>Risk-profile review</td><td>Periodically, and whenever there is a material change in your financial circumstances, investment objectives or risk preferences.</td></tr>
+        <tr><td>KYC status</td><td>${kycLabel}</td></tr>
+      </table>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:6px">
+      ${S._downloadPdfBase64 ? `<button class="btn btn-gold" onclick="downloadOnboardingCopy('complete')"><i class="ti ti-file-download"></i> Complete Onboarding</button>` : ''}
+      ${S._downloadRiskPdfBase64 ? `<button class="btn btn-sec" onclick="downloadOnboardingCopy('risk')"><i class="ti ti-file-analytics"></i> Risk Profile Assessment</button>` : ''}
+    </div>
+    <div style="max-width:480px;margin:0 auto 16px;display:flex;flex-direction:column;gap:4px">
+      ${S._downloadPdfBase64 ? `<div style="font-size:11px;color:var(--text3);text-align:center"><strong>Complete Onboarding</strong> — Your complete submitted onboarding record including all disclosures, KYC information and acknowledgement.</div>` : ''}
+      ${S._downloadRiskPdfBase64 ? `<div style="font-size:11px;color:var(--text3);text-align:center"><strong>Risk Profile Assessment</strong> — Your risk profile questionnaire responses, assessed profile and related acknowledgement.</div>` : ''}
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <button class="btn btn-ghost" onclick="startOver()"><i class="ti ti-refresh"></i> New onboarding</button>
+    </div>
+  </div>`;
+}
+
+// ── ACTIONS ───────────────────────────────────────────────────────────────────
+function go(stage){S.stage=stage;render();}
+
+function rpqNext() {
+  var sec = SECTIONS[S.rpqSection];
+  var qs = QUESTIONS.filter(function(q){ return q.sec === sec; });
+  var complete = qs.every(function(q){ return S.answers[q.id] != null; });
+  if (!complete) {
+    toast('Please answer all questions in this section before continuing');
+    qs.forEach(function(q){
+      if(S.answers[q.id] == null){
+        var card = document.querySelector('[data-qid="'+q.id+'"]');
+        if(card){
+          card.style.outline='2px solid var(--red)';
+          setTimeout(function(){ card.style.outline=''; }, 2000);
+        }
+      }
+    });
+    return;
+  }
+  // Determine if last section here, not at render time
+  var isLast = (S.rpqSection >= SECTIONS.length - 1);
+  if (isLast) {
+    finishRPQ();
+  } else {
+    nextSec();
+  }
+}
+
+function discNext(){
+  if(!S.agreed){
+    var cbox = document.getElementById('consent-box');
+    if(cbox){ cbox.style.outline='2px solid var(--red)'; setTimeout(()=>cbox.style.outline='',1500); }
+    toast('Please read and tick the consent box to continue');
+    return;
+  }
+  go('report');
+}
+
+function toggleAgreed(){
+  S.agreed = !S.agreed;
+  var cbox = document.getElementById('consent-box');
+  var chk  = document.getElementById('consent-check-icon');
+  var btn  = document.getElementById('disc-next-btn');
+  if(cbox) cbox.classList.toggle('agreed', S.agreed);
+  if(chk)  chk.style.color = S.agreed ? 'var(--navy)' : 'transparent';
+  if(btn){
+    btn.style.opacity = S.agreed ? '1' : '0.45';
+    btn.style.background = S.agreed ? 'var(--navy)' : '#9ca3af';
+  }
+}
+function setD(k,v){S.details[k]=v;}
+function setCKYC(k,v){
+  S.ckycData[k]=v;
+  // Update nomination options in-place (no scroll)
+  if(k==='nomination'){
+    document.querySelectorAll('[data-nom]').forEach(function(el){
+      var isSelected = el.getAttribute('data-nom')===v;
+      el.classList.toggle('sel',isSelected);
+      var dot=el.querySelector('.q-dot');
+      if(dot) dot.innerHTML=isSelected?'<i class="ti ti-check" style="font-size:10px"></i>':'';
+    });
+    var extra = document.getElementById('nom-extra');
+    if(extra) extra.innerHTML = renderNomExtra();
+  }
+  if(k==='holdingType'){
+    var notice = document.getElementById('nom-notice');
+    if(notice) notice.innerHTML = renderNomNotice();
+  }
+}
+function jumpSec(i){if(i<=S.rpqSection){S.rpqSection=i;render();}}
+function prevSec(){if(S.rpqSection>0){S.rpqSection--;render();}}
+function nextSec(){if(S.rpqSection<SECTIONS.length-1){S.rpqSection++;render();}}
+function startOver(){S={stage:'details',role:'MFD',details:{},answers:{},rpqSection:0,agreed:false,ckycData:{},result:null,ekyc:null};render();}
+
+function selectOpt(qid, oi, isMulti) {
+  // Update answer state
+  if(isMulti){
+    var cur = Array.isArray(S.answers[qid]) ? S.answers[qid].slice() : [];
+    var idx = cur.indexOf(oi);
+    if(idx > -1) cur.splice(idx,1); else cur.push(oi);
+    S.answers[qid] = cur;
+  } else {
+    S.answers[qid] = oi;
+  }
+
+  // Update only the clicked card's visual state — no scroll, no re-render
+  var card = document.querySelector('[data-qid="'+qid+'"]');
+  if(card) {
+    var opts = card.querySelectorAll('.q-opt');
+    opts.forEach(function(el, i){
+      var sel = isMulti
+        ? Array.isArray(S.answers[qid]) && S.answers[qid].indexOf(i) > -1
+        : S.answers[qid] === i;
+      el.classList.toggle('sel', sel);
+      var dot = el.querySelector('.q-dot');
+      if(dot) dot.innerHTML = sel ? '<i class="ti ti-check" style="font-size:10px"></i>' : '';
+    });
+    card.classList.add('answered');
+  }
+
+  // Update answered counter
+  var answered = QUESTIONS.filter(function(q){ return S.answers[q.id] != null; }).length;
+  var ctr = document.getElementById('rpq-answered-count');
+  if(ctr) ctr.textContent = answered + '/' + QUESTIONS.length;
+
+  // Update section progress pips
+  var sec = SECTIONS[S.rpqSection];
+  var qs = QUESTIONS.filter(function(q){ return q.sec === sec; });
+  var secComplete = qs.every(function(q){ return S.answers[q.id] != null; });
+
+  // Update Next button colour in-place (it's always clickable — onclick validates)
+  var btns = document.querySelectorAll('.btn-primary');
+  btns.forEach(function(btn){
+    if(btn.textContent.trim().indexOf('Next') > -1 || btn.textContent.trim().indexOf('View my risk') > -1){
+      btn.style.background = secComplete ? 'var(--navy)' : '#9ca3af';
+      btn.style.cursor = secComplete ? 'pointer' : 'default';
+    }
+  });
+
+  // Update hint text
+  var hint = document.querySelector('.q-hint');
+  if(hint) hint.textContent = secComplete ? '✓ Section complete' : 'Answer all questions to continue';
+}
+
+
+
+function finishRPQ(){
+  try {
+    S.result = computeResult();
+    go('disclosures');
+  } catch(e) {
+    console.error('finishRPQ error:', e);
+    toast('Error generating report. Please try again.');
+  }
+}
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+function bindEvents(){
+  // Init signature canvas if on report page
+  if(S.stage==='report') setTimeout(initSignCanvas, 100);
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+// No client data is persisted between visits — the app always starts fresh.
+render();
+
+// ── ESIGN CANVAS ──────────────────────────────────────────────────────────────
+let _signMode = 'draw';
+let _signCanvas = null;
+let _signing = false;
+let _signHasData = false;
+let _signAbortCtrl = null; // AbortController for removing canvas event listeners
+
+function initSignCanvas() {
+  var canvas = document.getElementById('esign-canvas');
+  if (!canvas) return;
+
+  // Idempotency: abort any previously attached listeners before re-attaching.
+  // This guarantees exactly one set of listeners regardless of how many times
+  // initSignCanvas is called (e.g. Draw → Type → Draw → Type → Draw).
+  if (_signAbortCtrl) {
+    _signAbortCtrl.abort();
+  }
+  _signAbortCtrl = new AbortController();
+  var signal = _signAbortCtrl.signal;
+
+  _signCanvas = canvas;
+  var ctx = canvas.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  var rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  ctx.strokeStyle = '#0B1F3A';
+  ctx.lineWidth = 2;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  function getPos(e) {
+    var r = canvas.getBoundingClientRect();
+    var src = e.touches ? e.touches[0] : e;
+    return { x: src.clientX - r.left, y: src.clientY - r.top };
+  }
+
+  canvas.addEventListener('mousedown', function(e) {
+    _signing = true; ctx.beginPath(); var p = getPos(e); ctx.moveTo(p.x, p.y);
+  }, { signal: signal });
+  canvas.addEventListener('mousemove', function(e) {
+    if (!_signing) return; var p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke();
+    _signHasData = true; updateSignStatus();
+  }, { signal: signal });
+  canvas.addEventListener('mouseup',    function() { _signing = false; }, { signal: signal });
+  canvas.addEventListener('mouseleave', function() { _signing = false; }, { signal: signal });
+  canvas.addEventListener('touchstart', function(e) {
+    e.preventDefault(); _signing = true; ctx.beginPath(); var p = getPos(e); ctx.moveTo(p.x, p.y);
+  }, { passive: false, signal: signal });
+  canvas.addEventListener('touchmove', function(e) {
+    e.preventDefault(); if (!_signing) return; var p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke();
+    _signHasData = true; updateSignStatus();
+  }, { passive: false, signal: signal });
+  canvas.addEventListener('touchend', function() { _signing = false; }, { signal: signal });
+}
+
+function clearSign() {
+  if (!_signCanvas) return;
+  const ctx = _signCanvas.getContext('2d');
+  ctx.clearRect(0, 0, _signCanvas.width, _signCanvas.height);
+  _signHasData = false;
+  updateSignStatus();
+}
+
+function setSignMode(mode) {
+  if(_signMode === mode) return; // already on this tab, nothing to do
+
+  // If a signature already exists on the current method, warn before clearing.
+  var hasExisting = false;
+  if(_signMode === 'draw' && _signHasData) hasExisting = true;
+  if(_signMode === 'type' && (document.getElementById('esign-type-input')?.value||'').trim().length > 1) hasExisting = true;
+  if(_signMode === 'upload' && _signHasData) hasExisting = true;
+
+  function doSwitch() {
+    // Abort canvas listeners immediately when leaving draw mode.
+    if (_signAbortCtrl) { _signAbortCtrl.abort(); _signAbortCtrl = null; }
+    // Reset all signature state when switching modes.
+    _signMode = mode;
+    _signHasData = false;
+    _signing = false;
+    _signCanvas = null;
+
+    // Clear typed input
+    var ti = document.getElementById('esign-type-input');
+    if(ti) ti.value = '';
+
+    // Clear upload preview
+    var prev = document.getElementById('esign-upload-preview');
+    var acts = document.getElementById('esign-upload-actions');
+    var inp  = document.getElementById('esign-upload-input');
+    var lbl  = document.getElementById('esign-upload-label');
+    if(prev){ prev.src=''; prev.style.display='none'; }
+    if(acts) acts.style.display='none';
+    if(inp)  inp.value='';
+    if(lbl)  lbl.textContent='Tap to upload a photo of your signature';
+
+    // Update tab visual state
+    document.querySelectorAll('.esign-tab').forEach(function(t){
+      t.classList.toggle('on', t.dataset.mode === mode);
+    });
+
+    // Show/hide panels
+    var drawWrap   = document.getElementById('esign-draw-wrap');
+    var typeWrap   = document.getElementById('esign-type-wrap');
+    var uploadWrap = document.getElementById('esign-upload-wrap');
+    if(drawWrap)   drawWrap.style.display   = mode==='draw'   ? '' : 'none';
+    if(typeWrap)   typeWrap.style.display   = mode==='type'   ? '' : 'none';
+    if(uploadWrap) uploadWrap.style.display = mode==='upload' ? '' : 'none';
+
+    if(mode === 'draw') setTimeout(initSignCanvas, 50);
+    updateSignStatus();
+  }
+
+  if(hasExisting) {
+    showObModal({
+      kind: 'warn',
+      title: 'Change signature method?',
+      body: 'Switching to a different method will clear your current signature. You will need to sign again.',
+      confirmLabel: 'Continue',
+      cancelLabel: 'Keep current',
+      onConfirm: doSwitch,
+    });
+  } else {
+    doSwitch();
+  }
+}
+
+function isCanvasBlank(canvas) {
+  // Returns true if the canvas contains no drawn pixels (all transparent/white).
+  if(!canvas) return true;
+  var ctx = canvas.getContext('2d');
+  var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+  for(var i = 3; i < data.length; i += 4) {
+    if(data[i] > 10) return false; // found a non-transparent pixel
+  }
+  return true;
+}
+
+function updateSignStatus() {
+  var hasTyped = (document.getElementById('esign-type-input')?.value||'').trim().length > 1;
+  // For draw mode, verify the canvas actually has pixels — _signHasData alone
+  // is insufficient because the canvas may have been re-initialised after switching.
+  var drawValid = _signMode==='draw' && _signHasData && _signCanvas && !isCanvasBlank(_signCanvas);
+  var ok = drawValid || (_signMode==='type' && hasTyped) || (_signMode==='upload' && _signHasData);
+  // Sync _signHasData with reality for draw mode
+  if(_signMode==='draw') _signHasData = drawValid;
+  var elId = _signMode==='draw' ? 'esign-status-draw' : _signMode==='type' ? 'esign-status-type' : 'esign-status-upload';
+  var el = document.getElementById(elId);
+  if(el) {
+    el.textContent = ok ? '✓ Acknowledgement captured' : (_signMode==='draw' ? 'Draw your signature above' : _signMode==='type' ? 'Type your name above' : 'Upload a signature image above');
+    el.style.color = ok ? 'var(--green)' : 'var(--text3)';
+  }
+  S._signDone = ok;
+}
+
+function toast(msg, isErr) {
+  let el = document.getElementById('ob-toast');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'ob-toast';
+    el.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0B1F3A;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:500;z-index:999;opacity:0;transition:opacity .3s;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.3)';
+    document.body.appendChild(el);
+  }
+  if (isErr) el.style.background = '#991B1B';
+  else el.style.background = '#0B1F3A';
+  el.textContent = msg;
+  el.style.opacity = '1';
+  setTimeout(() => el.style.opacity = '0', 3000);
+}
+
+// ── MODAL (replaces native alert()/confirm() so messages match the site's design) ──
+function showObModal(opts) {
+  var old = document.getElementById('ob-modal-overlay');
+  if (old) old.remove();
+  var overlay = document.createElement('div');
+  overlay.id = 'ob-modal-overlay';
+  overlay.className = 'ob-modal-overlay';
+  var iconMap = {info:'ti-info-circle', warn:'ti-alert-triangle', err:'ti-alert-triangle'};
+  var titleClass = opts.kind === 'err' ? 'err' : opts.kind === 'warn' ? 'warn' : '';
+  overlay.innerHTML =
+    '<div class="ob-modal">' +
+      '<div class="ob-modal-title ' + titleClass + '"><i class="ti ' + (iconMap[opts.kind]||'ti-info-circle') + '"></i>' + opts.title + '</div>' +
+      '<div class="ob-modal-body">' + opts.body + '</div>' +
+      '<div class="ob-modal-actions">' +
+        (opts.cancelLabel ? '<button class="btn btn-sec" id="ob-modal-cancel">' + opts.cancelLabel + '</button>' : '') +
+        '<button class="btn btn-primary" id="ob-modal-confirm">' + (opts.confirmLabel || 'OK') + '</button>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(overlay);
+  document.getElementById('ob-modal-confirm').onclick = function(){ overlay.remove(); if(opts.onConfirm) opts.onConfirm(); };
+  if (opts.cancelLabel) {
+    document.getElementById('ob-modal-cancel').onclick = function(){ overlay.remove(); if(opts.onCancel) opts.onCancel(); };
+  }
+  overlay.onclick = function(e){ if(e.target === overlay && opts.cancelLabel){ overlay.remove(); if(opts.onCancel) opts.onCancel(); } };
+}
+
+// ── SIGNATURE CAPTURE FOR SUBMISSION ────────────────────────────────────────
+function getSignatureForPDF() {
+  if(_signMode==='draw'){
+    if(_signCanvas && _signHasData && !isCanvasBlank(_signCanvas)){
+      return {type:'image', data:_signCanvas.toDataURL('image/png')};
+    }
+    return null;
+  }
+  if(_signMode==='upload' && _signHasData){
+    var img = document.getElementById('esign-upload-preview');
+    if(img && img.src && img.src.indexOf('data:image/') === 0) return {type:'image', data:img.src};
+    return null;
+  }
+  if(_signMode==='type'){
+    var typed = (document.getElementById('esign-type-input')||{}).value||'';
+    if(typed.trim().length > 1) return {type:'text', data:typed.trim()};
+    return null;
+  }
+  return null;
+}
+
+function generateRequestId(){
+  if(window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+  // Fallback for older browsers
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c){
+    var r = Math.random()*16|0, v = c==='x'?r:(r&0x3|0x8);
+    return v.toString(16);
+  });
+}
+
+// ── FINAL SUBMISSION ─────────────────────────────────────────────────────────
+// The browser submits the complete onboarding record exactly once to the
+// Google Apps Script backend, which is the authoritative store. Nothing here
+// generates the official PDF locally any more — the backend does, and returns
+// a copy in its response for the optional "Download a copy" button.
+function buildSubmissionPayload(){
+  const r = S.result;
+  const d = S.details;
+  return {
+    clientRequestId: S._clientRequestId,
+    engagement: 'MFD',
+    distributor: CFG.distributor,
+    arn: CFG.arn,
+    euin: CFG.euin,
+    submittedAtClient: new Date().toISOString(),
+    details: {
+      name: d.name||'', pan: (d.pan||'').toUpperCase(), dob: d.dob||'',
+      resStatus: d.resStatus||'RI', mobile: d.mobile||'', email: d.email||'',
+      city: d.city||'', occupation: d.occupation||'', income: d.income||'',
+      networth: d.networth||'', surplus: d.surplus||'',
+    },
+    rpq: {
+      answers: S.answers,
+      // Pre-resolved transcript built from the QUESTIONS array (the only
+      // source of truth for question text). Backend uses this for PDF
+      // rendering — never for scoring. Scoring is always from raw answers.
+      transcript: QUESTIONS.map(function(q){
+        var a = S.answers[q.id];
+        var selected = [];
+        if(Array.isArray(a)){
+          a.forEach(function(i){ if(q.opts[i]) selected.push({text:q.opts[i][0], score:q.opts[i][1]}); });
+        } else if(a!=null && q.opts[a]){
+          selected.push({text:q.opts[a][0], score:q.opts[a][1]});
+        }
+        return {
+          id: q.id,
+          sectionId: q.sec,
+          sectionTitle: SEC_META[q.sec].title,
+          question: q.label,
+          selectedOptions: selected,
+        };
+      }),
+    },
+    disclosuresAgreed: !!S.agreed,
+    kyc: {
+      status: S.ekyc||'',
+      kycRef: S.ckycData.kycRef||'',
+      kycId: S.ckycData.kycId||'',
+      kra: S.ckycData.kra||'',
+      address: S.ckycData.address||'',
+      place: S.ckycData.place||S.details.city||'',
+      holdingType: S.ckycData.holdingType||'single',
+      nomination: S.ckycData.nomination||'',
+      nominees: S.ckycData.nomination==='submit' ? (S.ckycData.nominees||[]).filter(n=>n.name) : [],
+      fatcaIndiaOnly: S.ckycData.fatcaIndiaOnly||'',
+      fatcaCountry: S.ckycData.fatcaIndiaOnly==='no' ? (S.ckycData.fatcaCountry||'') : '',
+      fatcaTIN: S.ckycData.fatcaIndiaOnly==='no' ? (S.ckycData.fatcaTIN||'') : '',
+      fatcaUSPerson: S.ckycData.fatcaUSPerson||'',
+    },
+    signature: S._signCapture || null,
+  };
+}
+
+var _submitProgressInterval = null;
+
+function setSubmitBusy(isBusy, label){
+  var btn = document.getElementById('submit-onboarding-btn');
+  var overlay = document.getElementById('submit-progress-overlay');
+  if(!btn) return;
+
+  if(isBusy){
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+    btn.style.cursor = 'default';
+
+    // Show the please-wait overlay
+    if(overlay) overlay.style.display = 'flex';
+
+    // Cycle through progress messages every 8 seconds
+    var messages = [
+      'Submitting your onboarding\u2026',
+      'Saving your record securely\u2026',
+      'Generating your documents\u2026',
+      'Almost done, please wait\u2026',
+    ];
+    var idx = 0;
+    btn.innerHTML = messages[0];
+    var msgEl = document.getElementById('submit-progress-msg');
+    if(msgEl) msgEl.textContent = messages[0];
+
+    _submitProgressInterval = setInterval(function(){
+      idx = Math.min(idx + 1, messages.length - 1);
+      btn.innerHTML = messages[idx];
+      if(msgEl) msgEl.textContent = messages[idx];
+    }, 8000);
+
+  } else {
+    // Clear progress state
+    if(_submitProgressInterval){ clearInterval(_submitProgressInterval); _submitProgressInterval = null; }
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+    btn.innerHTML = 'Submit onboarding <i class="ti ti-arrow-right"></i>';
+    if(overlay) overlay.style.display = 'none';
+  }
+}
+
+function submitOnboarding() {
+  // Validate signature first — before capturing, to catch blank canvas correctly.
+  var sigPreview = getSignatureForPDF();
+  if(!sigPreview){
+    var sigWrap = document.querySelector('.esign-wrap');
+    if(sigWrap){ sigWrap.style.outline='2px solid var(--red)'; setTimeout(function(){ sigWrap.style.outline=''; },2000); }
+    toast('Please complete your signature before submitting.');
+    return;
+  }
+  if(!CFG.webAppUrl || CFG.webAppUrl.indexOf('PASTE_YOUR_DEPLOYMENT_ID')>-1){
+    showObModal({kind:'err', title:'Backend not configured', body:'The onboarding backend URL has not been set up yet. Please contact the site administrator.'});
+    return;
+  }
+  S._signCapture = sigPreview; // already validated above
+  if(!S._clientRequestId) S._clientRequestId = generateRequestId();
+
+  setSubmitBusy(true, 'Submitting…');
+  var payload = buildSubmissionPayload();
+  // Guard token: if the user somehow navigates before this fetch resolves,
+  // the response is ignored — it will not fire go('done') on wrong state.
+  var submitToken = S._clientRequestId;
+
+  fetch(CFG.webAppUrl, {
+    method: 'POST',
+    headers: {'Content-Type': 'text/plain;charset=utf-8'},
+    body: JSON.stringify({ payload: payload }),
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    if(S._clientRequestId !== submitToken) return; // stale — user navigated
+    setSubmitBusy(false);
+    if(!data || data.ok !== true){
+      showObModal({kind:'err', title:'Submission could not be completed', body:(data && data.error) || 'Please check your connection and try again. Nothing has been lost — your answers are still on this page.'});
+      return;
+    }
+    S._submissionId = data.submissionId;
+    S._serverProfile = data.serverProfile || null;
+    S._serverWs = data.serverWs || null;
+    S._downloadPdfBase64 = data.completePdfBase64 || null;
+    S._downloadRiskPdfBase64 = data.riskPdfBase64 || null;
+    go('done');
+  })
+  .catch(function(err){
+    if(S._clientRequestId !== submitToken) return;
+    setSubmitBusy(false);
+    showObModal({kind:'err', title:'Could not reach the server', body:'Please check your internet connection and try again. Nothing has been lost — your answers are still on this page, and it is safe to press Submit again.'});
+  });
+}
+
+function downloadOnboardingCopy(type) {
+  var b64 = type === 'risk' ? S._downloadRiskPdfBase64 : S._downloadPdfBase64;
+  if(!b64){
+    toast('This document is not available for this session. The official record is safely stored in the distributor\'s records.');
+    return;
+  }
+  var id = (S._submissionId||'copy').replace(/[^A-Za-z0-9\-]/g,'_');
+  var filename = type === 'risk'
+    ? 'Risk-Profile_' + id + '.pdf'
+    : 'Complete-Onboarding_' + id + '.pdf';
+  var byteChars = atob(b64);
+  var bytes = new Uint8Array(byteChars.length);
+  for(var i=0;i<byteChars.length;i++) bytes[i] = byteChars.charCodeAt(i);
+  var blob = new Blob([bytes], {type:'application/pdf'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+}
+
+
+function handleSigUpload(input) {
+  var file = input.files[0];
+  if(!file) return;
+  // Client-side validation — type and size (backend independently enforces both)
+  var allowedTypes = ['image/jpeg','image/jpg','image/png'];
+  if(allowedTypes.indexOf(file.type) === -1){
+    showObModal({kind:'err', title:'Unsupported file type', body:'Please upload a JPG or PNG image of your signature. Other file types are not accepted.'});
+    input.value = '';
+    return;
+  }
+  var maxBytes = 1 * 1024 * 1024; // 1 MB
+  if(file.size > maxBytes){
+    showObModal({kind:'err', title:'File too large', body:'The signature image must be under 1 MB. Please use a smaller or compressed image.'});
+    input.value = '';
+    return;
+  }
+  var reader = new FileReader();
+  reader.onload = function(ev){
+    var result = ev.target.result;
+    // Verify the data URL starts with an expected image prefix as a secondary check
+    if(!result || result.indexOf('data:image/jpeg') !== 0 && result.indexOf('data:image/jpg') !== 0 && result.indexOf('data:image/png') !== 0){
+      showObModal({kind:'err', title:'Invalid image', body:'The file could not be read as a valid image. Please try a different file.'});
+      input.value = '';
+      return;
+    }
+    var img = document.getElementById('esign-upload-preview');
+    var prompt = document.getElementById('esign-upload-prompt');
+    var actions = document.getElementById('esign-upload-actions');
+    if(img){ img.src=result; img.style.display='block'; }
+    if(prompt) prompt.style.display='none';
+    if(actions) actions.style.display='flex';
+    _signHasData = true;
+    updateSignStatus();
+  };
+  reader.readAsDataURL(file);
+}
+
+function previewSigUpload(){
+  var img = document.getElementById('esign-upload-preview');
+  if(!img || !img.src) return;
+  showObModal({kind:'info', title:'Signature preview', body:'<img src="'+img.src+'" style="max-width:100%;border-radius:4px">', confirmLabel:'Close'});
+}
+
+function removeSigUpload(){
+  var img = document.getElementById('esign-upload-preview');
+  var prompt = document.getElementById('esign-upload-prompt');
+  var actions = document.getElementById('esign-upload-actions');
+  var input = document.getElementById('esign-upload-input');
+  if(img){ img.src=''; img.style.display='none'; }
+  if(prompt) prompt.style.display='';
+  if(actions) actions.style.display='none';
+  if(input) input.value='';
+  _signHasData = false;
+  updateSignStatus();
+}
+
+
+
+
+// ── VALIDATION ────────────────────────────────────────────────────────────────
+function validatePAN(pan){
+  return /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test((pan||'').toUpperCase());
+}
+function validateMobile(mob, rs){
+  var d = (mob||'').replace(/[^0-9]/g,'');
+  return rs==='NRI' ? (d.length>=8 && d.length<=15) : d.length===10;
+}
+function validateEmail(em){
+  return !em || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+}
+function validateClientForm(){
+  var d = S.details, errs = {};
+  if(!d.name || d.name.trim().length<2)
+    errs.name = 'Please enter your full name.';
+  if(!d.pan)
+    errs.pan = 'Please enter your PAN.';
+  else if(!validatePAN(d.pan))
+    errs.pan = 'Please enter a valid PAN in the format AAAAA9999A.';
+  if(!d.dob)
+    errs.dob = 'Please enter your date of birth.';
+  else if(new Date(d.dob) > new Date())
+    errs.dob = 'Date of birth cannot be in the future.';
+  if(!d.mobile)
+    errs.mobile = 'Please enter your mobile number.';
+  else if(!validateMobile(d.mobile, d.resStatus||'RI'))
+    errs.mobile = (d.resStatus==='NRI') ? 'Please enter a valid mobile number with country code (8-15 digits).' : 'Please enter a valid 10-digit mobile number.';
+  if(!d.email)
+    errs.email = 'Please enter your email address.';
+  else if(!validateEmail(d.email))
+    errs.email = 'Please enter a valid email address.';
+  if(!d.city || d.city.trim().length<2)
+    errs.city = 'Please enter your city or place.';
+  return errs;
+}
+function submitDetails(){
+  var errs = validateClientForm();
+  var errList = Object.values(errs);
+  S._detailErrs = errs;
+  if(errList.length){
+    render();
+    showObModal({
+      kind: 'err',
+      title: 'Please fix the following',
+      body: '\u2022 ' + errList.join('\n\u2022 ')
+    });
+    return;
+  }
+  go('kyc');
+}
+// ──────────────────────────────────────────────────────────────────────────────
+</script>
+</body>
+</html>
